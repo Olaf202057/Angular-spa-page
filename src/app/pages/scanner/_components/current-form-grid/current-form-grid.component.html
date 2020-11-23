@@ -1,0 +1,64 @@
+<div style="margin-top:-35px !important" class="table-responsive">
+    <table [ngClass]="isLight() ? 'table table-hover responsive nowrap form-grid' : 'table table-dark table-hover responsive nowrap form-grid'">
+        <thead>
+            <tr [ngClass]="isLight() ? 'base-light-background' : 'base-dark-background'">
+                <th [ngClass]="isLight() ? 'base-light-background' : 'base-dark-background'" scope="col"><img src="./../../assets/Date.png" style="width:20px;margin-right:5px;"> Date</th>
+                <th [ngClass]="isLight() ? 'base-light-background' : 'base-dark-background'" class="center-aligned">
+                    <i class="fa fa-futbol fa-lg" [ngClass]="isLight() ? 'grey-text' : 'white-text'"></i>
+                </th>
+                <th [ngClass]="isLight() ? 'base-light-background' : 'base-dark-background'" scope="col">League</th>
+                <th [ngClass]="isLight() ? 'base-light-background' : 'base-dark-background'" scope="col"><img src="./../../assets/team.png" style="width:20px;margin-right:5px;"> Home</th>
+                <th [ngClass]="isLight() ? 'base-light-background' : 'base-dark-background'" scope="col"><img src="./../../assets/team.png" style="width:20px;margin-right:5px;"> Away</th>
+                <th [ngClass]="isLight() ? 'base-light-background' : 'base-dark-background'" scope="col" class="center-aligned"><img src="./../../assets/result.png" style="width:20px;margin-right:5px;"> Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr [ngClass]="isLight() ? 'base-light-background' : 'base-dark-background'" *ngFor="let match of matches; index as i">
+                <td [ngClass]="isLight() ? 'base-light-background' : 'base-dark-background'" scope="col">{{match.kickOffTime | date:'mediumDate'}}</td>
+                <td [ngClass]="isLight() ? 'base-light-background' : 'base-dark-background'" scope="col" class="center-aligned"><img src="./../../assets/form.png" style="width:20px;margin-right:5px;"></td>
+                <td [ngClass]="isLight() ? 'base-light-background' : 'base-dark-background'" scope="col">League</td>
+                <td [ngClass]="isLight() ? 'base-light-background' : 'base-dark-background'" scope="col" [ngClass]="getTextClass(true, match)">{{match.home}}</td>
+                <td [ngClass]="isLight() ? 'base-light-background' : 'base-dark-background'" scope="col" [ngClass]="getTextClass(false, match)">{{match.away}}</td>
+                <td [ngClass]="isLight() ? 'base-light-background' : 'base-dark-background'" scope="col" class="center-aligned">
+                    <button type="button" [ngClass]="getClass(match)">
+              <span *ngIf="match && match.matchResult==1">D</span>
+              <span *ngIf="match && match.matchResult==0">L</span>
+              <span *ngIf="match && match.matchResult==2">W</span>
+          </button>
+                </td>
+            </tr>
+            <tr [ngClass]="isLight() ? 'base-light-background' : 'base-dark-background'" *ngIf="!initialized">
+                <td [ngClass]="isLight() ? 'base-light-background' : 'base-dark-background'" colspan="6">
+                    <div *ngIf="!initialized" style="margin-top:5%;margin-left:42%">
+                        <div class="spinner-grow text-primary" role="status">
+                            <span class="sr-only">Loading </span>
+                        </div>
+                        <div class="spinner-grow text-secondary" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                        <div class="spinner-grow text-success" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                        <div class="spinner-grow text-danger" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                        <div class="spinner-grow text-warning" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                        <div class="spinner-grow text-info" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                        <div class="spinner-grow text-dark" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr *ngIf="initialized && !matches.length">
+                <td colspan="6">
+                    No Match Information Avaialble
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

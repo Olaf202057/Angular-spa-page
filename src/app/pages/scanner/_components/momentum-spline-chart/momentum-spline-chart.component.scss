@@ -1,0 +1,41 @@
+.main-container {
+    background: white !important;
+    height: 220px !important;
+    width: 450px !important;
+    border: solid 1px #146853;
+}
+
+.arrow-up {
+    width: 0; 
+    height: 0; 
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 25px solid #146853;
+  }
+
+
+// triangle
+
+.info-panel {
+    display: block;
+    position: relative;
+    border: 1px solid #146853;
+}
+.info-panel:before, .info-panel:after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 100%;
+    width: 0;
+    height: 0;
+}
+.info-panel:before {
+    border-left: 14px solid transparent;
+    border-right: 14px solid transparent;
+    border-bottom: 25px solid #146853;
+}
+.info-panel:after {
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    border-bottom: 23px solid white;
+}

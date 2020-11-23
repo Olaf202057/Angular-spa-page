@@ -1,0 +1,96 @@
+.column-visibility {
+    .visibility-section {
+        border-bottom: 1px solid var(--color-gray);
+    
+        .section-header {
+            padding-top: 12px !important;
+            padding-bottom: 12px !important;
+    
+            .section-title {
+            font-size: 14px !important;
+            font-family: "poppins-medium";
+            }
+        }
+    
+        .section-content {
+            button {
+            margin: 12px 24px 12px 0px !important;
+    
+            &.active {
+                background-color: #1e7e34 !important;
+                color: white !important;
+            }
+            }
+        }
+    }
+    .dropdown-container {
+        width: 400px;
+        margin: 30px;
+    }
+
+    // .bg-blue-add {
+    //     background-color: #007eff !important;
+    // }
+
+    // .bg-semi-blue-add {
+    //     background-color: rgb(36 134 255 / 17%) !important;
+    //     color: #007eff;
+    // }
+    
+    .btn-soccer-outline-primary-left{
+        color:#ffffff !important;
+        font-size: 14px !important;
+        background-color: #1e7e34 !important;
+        letter-spacing: 1px;
+        background: transparent;
+        transition: all 0.3s ease 0s;
+        line-height: 16px;
+        height:32px;
+        border-top-left-radius: 40px;
+        border-bottom-left-radius: 40px;
+        font-size: 10px !important;
+        font-weight: bold !important;
+        width:80%;
+        left:5px;
+        right:5px;
+        text-align: left !important;
+    }
+
+    .bg-success-color {
+        background-color: #146853 !important;
+    }
+
+    .btn-soccer-primary-2-right{
+        background-color:#146853 !important;
+        font-size: 13px;
+        color: rgb(255, 208, 0);
+        letter-spacing: 1px;
+        line-height: 15px;
+        height: 32px !important;
+        border-top-right-radius: 40px;
+        border-bottom-right-radius: 40px;;
+        background: transparent;
+        transition: all 0.3s ease 0s;
+    }
+    .dropdown-body{
+        border-bottom-left-radius: 20px !important;
+        border-bottom-right-radius: 20px !important;
+        background-color: #d4ece5 !important;
+        color:#146853 !important;
+        width: 60% !important;
+        margin-left: 56px;
+    }
+    .right-10{
+        margin-right: 10px;
+    }
+    .apply {
+        background-color: #1e7e34;
+        color: #ffffff;
+        margin: 50px 100px;
+        width: 200px;
+    }
+    .dropdown-toggle::after{
+        content: none;
+    }
+}
+  

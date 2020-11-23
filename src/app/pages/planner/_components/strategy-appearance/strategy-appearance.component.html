@@ -1,0 +1,30 @@
+<div class="row m-0 bg-white">
+  <div class="col-12 strategy-appearance">
+    <div class="row">
+      <div class="col-3 input-group">
+        <input type="text" class="form-control bg-semi-success text-success border-0" placeholder="Name" [(value)]="strategyName" (change)="onChangeName($event)">
+        <div class="input-group-append">
+          <button class="btn btn-semi-success d-flex align-items-center" type="button">
+            <i class="far fa-text-size" style="color: white; font-size: 12px;"></i>
+          </button>
+        </div>
+      </div>
+      <div class="col-3 input-group">
+        <input type="text" class="form-control bg-semi-success text-success border-0" placeholder="Colour" [(value)]="strategyColor" (change)="onChangeColor($event)">
+        <div class="input-group-append">
+          <button class="btn btn-semi-success d-flex align-items-center" type="button">
+            <i class="fal fa-eye-dropper" style="color: white; font-size: 12px;"></i>
+          </button>
+        </div>
+      </div>
+      <div class="col-3 form-check d-flex align-items-center">
+        <input type="checkbox" class="form-check-input" id="disable-quick-filter" [(checked)]="disableQuickFilters" (change)="onChangeDisableStatus($event)">
+        <label class="form-check-label ml-3 text-semi-gray" for="disable-quick-filter">Disable Quick Filters Button</label>
+      </div>
+      <div class="col-3 form-check d-flex align-items-center">
+        <input type="checkbox" class="form-check-input" id="show-on-scanner" [(checked)]="showOnScanner" (change)="onChangeShowOnScannerStatus($event)">
+        <label class="form-check-label ml-3 text-semi-gray" for="show-on-scanner">Show on scanner</label>
+      </div>
+    </div>
+  </div>
+</div>

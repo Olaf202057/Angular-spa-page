@@ -1,0 +1,29 @@
+<div class="modal fade note-dialog" id="note-dialog" tabindex="-1" role="dialog" aria-labelledby="note-dialog-label" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="modal-title" id="note-dialog-label">Notes Manager</span>
+        <button type="button" class="close d-flex justify-content-center align-items-center" data-dismiss="modal" aria-label="Close">
+          <i class="material-icons">close</i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-12">
+            <textarea class="form-control" rows="7" [(ngModel)]="note" placeholder="Add Notes here..."></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button type="button" class="btn btn-danger btn-sm btn-fab mr-3" data-dismiss="modal">
+          <i class="fal fa-times-circle mr-2"></i>
+          Cancel
+        </button>
+        <button type="button" class="btn btn-success btn-sm btn-fab ml-3" (click)="onSaveNote()">
+          <i class="fal fa-save mr-2"></i>
+          Save
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,133 @@
+
+// grid header css
+.grid-header-top {
+    height: 52px;
+    padding: 8px 15px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #1b6853;
+    color: #ffffff;
+    letter-spacing: 1px;
+    line-height: 36px;
+
+    div {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .grid-title {
+        font-size: 16px;
+        font-weight: 500;
+    }
+    .grid-filter {
+        float: right;
+        font-size: 14px;
+        font-weight: 400;
+        button {
+            min-width: 10px;
+            img {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+}
+
+// jqxwidget grid css
+:host::ng-deep .jqx-widget-header {
+//   background-color: white !important
+  background-color: transparent !important;
+  border-color: #ededed !important;
+}
+:host::ng-deep .iconscontainer .jqx-widget-header {
+    width: 10px !important;
+}
+:host::ng-deep .jqx-grid-column-header > div > div[class="jqx-widget-header"] {
+    // display: none !important;
+}
+
+:host::ng-deep .jqx-widget .jqx-grid-cell, .jqx-widget .jqx-grid-column-header, .jqx-widget .jqx-grid-group-cell {
+    border-right: 0px solid;
+    border-color: #ededed !important;
+}
+// entire table border
+:host::ng-deep .jqx-widget-content {
+    border-color: transparent;
+}
+:host::ng-deep .jqx-grid-column-header {
+    border-right: 0px;
+}
+
+:host::ng-deep .borderlessRow {
+    border-right: 1px solid !important;
+    border-color: #ededed !important;
+}
+
+
+//
+:host::ng-deep .grid-header-column {
+    height: 100%;
+    padding-right: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: #7f8593;
+    font-weight: 500;
+    img {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+    }
+}
+:host::ng-deep .column-group-content {
+    padding: 15px 10px;
+
+    span {
+        font-size: 14px;
+        letter-spacing: 1px;
+        color: #7f8593;
+        font-weight: 600;
+    }
+    
+    select {
+        float: right;
+        border-radius: 5px;
+        background-color: #1b685324;
+        color: #1b6853;
+        font-size: 12px;
+        font-weight: 300;
+        border: none;
+        padding: 2px;
+        margin-top: -2px;
+        outline: none;
+    }
+}
+:host::ng-deep .cellfont {
+    margin-top:0;
+    
+    font-size: 12px;
+    color: #2c2c2c;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 1px;
+
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+// club search
+:host::ng-deep #id_clubsearch {
+    background: #1b685324 url('../../../../../assets/img/psd/search.png') no-repeat scroll 10px 7px;
+    background-size: 13px;
+    color: #1b6853;
+    padding-left:30px;
+    border-radius: 50px;
+    border: none !important;
+    width: 180px;
+    height: 25px;
+    outline: none;
+}

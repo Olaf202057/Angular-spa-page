@@ -1,0 +1,39 @@
+.bg-success {
+  background-color: #1e7e34 !important;
+}
+
+.bg-semi-success {
+  background-color: rgba($color: #1b6753, $alpha: 0.1) !important;
+}
+
+.bg-warning {
+  background-color: var(--color-warning) !important;
+}
+
+.bg-semi-warning {
+  background-color: rgba($color: #fdd100, $alpha: 0.3) !important;
+}
+
+.text-success {
+  color: #1e7e34 !important;
+}
+
+.text-semi-success {
+  color: rgba($color: #1b6753, $alpha: 0.1) !important;
+}
+
+.text-gray {
+  color: var(--color-gray) !important;
+}
+
+.text-semi-gray {
+  color: var(--color-semi-gray) !important;
+}
+
+.text-warning {
+  color: var(--color-warning) !important;
+}
+
+.text-semi-warning {
+  color: rgba($color: #fdd100, $alpha: 0.3) !important;
+}

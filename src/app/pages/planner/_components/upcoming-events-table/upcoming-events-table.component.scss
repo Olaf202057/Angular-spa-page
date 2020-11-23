@@ -1,0 +1,84 @@
+.mat-elevation-z8 {
+  overflow-y: auto;
+}
+::ng-deep table {
+  width: 100%;
+
+  thead {
+    tr {
+      th {
+        font-size: 14px !important;
+        font-family: "poppins-medium" !important;
+        color: var(--color-semi-gray) !important;
+
+        &.mat-column-kick-off {
+          width: 13% !important;
+        }
+
+        &.mat-column-country {
+          width: 11% !important;
+        }
+
+        &.mat-column-league {
+          width: 21% !important;
+        }
+
+        &.mat-column-home {
+          width: 20% !important;
+        }
+
+        &.mat-column-away {
+          width: 20% !important;
+        }
+
+        &.mat-column-predictions {
+          width: 9% !important;
+          text-align: center !important;
+        }
+
+        &.mat-column-notes {
+          width: 6% !important;
+          text-align: center !important;
+        }
+
+        &.mat-column-strategies {
+          width: 6% !important;
+          text-align: center !important;
+        }
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      &:hover {
+        background-color: rgba($color: #1b6753, $alpha: 0.1) !important;
+        td {
+          color: var(--color-success) !important;
+        }
+      }
+
+      td {
+        font-size: 14px !important;
+        font-family: "poppins-medium" !important;
+
+        &.mat-column-predictions,
+        &.mat-column-notes,
+        &.mat-column-strategies {
+          text-align: center;
+        }
+
+        img {
+          width: 24px !important;
+          height: 24px !important;
+          border-radius: 50% !important;
+        }
+        img.strategyicon {
+          cursor: pointer; 
+          color: #7f8593; 
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}

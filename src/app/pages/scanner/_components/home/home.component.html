@@ -1,0 +1,98 @@
+<div *ngIf="loaded" style="margin-top: 20px;">
+    <div class="row" style="display: flex; align-items: center;">
+        <div class="col-md-11">
+            <button (click)="showPredictionTable()" class="btn btn-grey btn-circle bottom-5" style="margin: 0;">Pre-Match</button>
+            <div *ngIf="preMatchFlag" [@enterAnimation] class="row py-5 left-5 right-5 ng-star-inserted table-margin">
+                <table class="mat-sort table table-hover responsive nowrap ng-star-inserted">
+                    <thead class="prediction-thead">
+                        <tr style="color:#fff;" class="tr-br">
+                            <th class="th-pl t-head">KO</th>
+                            <th class="t-head">League</th>
+                            <th class="t-head">Home</th>
+                            <th class="t-head">Away</th>
+                            <th class="t-head">Predictions</th>
+                            <th class="th-pr t-head">Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let userPrediction of userPredictions;let i = index;">
+                            <td class="td-ko">{{userPrediction.kickOffTime | date:"HH:mm"}}</td>
+                            <td>{{userPrediction.league}}</td>
+                            <td>{{userPrediction.homeName}}</td>
+                            <td>{{userPrediction.awayName}}</td>
+                            <td ngClass="center-aligned">
+                                <span style="cursor: pointer;" [ngbPopover]="popContent1" placement="bottom" triggers="mouseenter:mouseleave">
+                        <svg-icon src="assets/img/predictions.svg" [svgStyle]="{ 'width.px':90 }"></svg-icon>
+                        </span>
+                                <ng-template #popContent1>
+                                    <table class="mat-sort table-hover responsive nowrap ng-star-inserted">
+                                        <thead class="prediction-thead">
+                                            <tr style="color:#fff;">
+                                                <th>Market</th>
+                                                <th>Outcome</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let prediction of userPrediction.predictions">
+                                                <td>
+                                                    <div *ngIf="prediction">{{prediction.market}}</div>
+                                                </td>
+                                                <td>
+                                                    <div *ngIf="prediction">{{prediction.outcome}}</div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </ng-template>
+                            </td>
+                            <td ngClass="center-aligned">
+                                <div style="cursor:pointer; width:90px;text-align: center;" [ngbPopover]="popContent2" placement="bottom" triggers="mouseenter:mouseleave">
+                                    <i class="fa fa-sticky-note fa-lg ng-star-inserted" style="color: green; cursor: pointer; font-weight: bold; font-size: 20px !important;"></i>
+                                </div>
+                                <ng-template #popContent2>
+                                    {{userPrediction.noteBody}}
+                                </ng-template>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="pull-right" style="display: block; background-color: #1b6853; border-radius: 50px; width: 30px; height: 30px; cursor: pointer; padding: 4px;">
+                <img (click)="addNewGrid()" src="assets/img/psd/new_grid.png" style="width: 100%;">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-12" *ngFor="let grid of grids;let i = index;" style="margin-top: 20px;">
+            <app-score-grid [grid]="grid" [gridName]="grid.name" [gridNumber]="i"></app-score-grid>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!loaded" style="margin-top:22%;margin-left:42%">
+    <div class="spinner-grow text-primary" role="status">
+        <span class="sr-only">Loading </span>
+    </div>
+    <div class="spinner-grow text-secondary" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+    <div class="spinner-grow text-success" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+    <div class="spinner-grow text-danger" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+    <div class="spinner-grow text-warning" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+    <div class="spinner-grow text-info" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+    <div class="spinner-grow text-dark" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>

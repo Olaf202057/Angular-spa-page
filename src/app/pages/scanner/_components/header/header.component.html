@@ -1,0 +1,37 @@
+<nav [ngClass]="isLight ? ( isResponsive() ? 'resolution-width-header navbar navbar-dark bg-soccer-ui' : 'full-width-header navbar navbar-dark bg-soccer-ui') : ( isResponsive() ? 'resolution-width-header  navbar navbar-dark bg-soccer-dark-ui' : 'full-width-header  navbar navbar-dark bg-soccer-dark-ui')">
+    <!-- <div>
+
+
+    </div>
+    <a class="navbar-brand" href="#">
+        <i class="fa fa-futbol-o" style="color:rgb(255, 217, 0);font-size: 30px;"></i>
+    </a> -->
+    <a class="navbar-brand" (click)="navigate('Home','/home')">
+        <img *ngIf="isLight" src="../../assets/Company.png">
+        <img *ngIf="!isLight" src="../../assets/company-dark.png">
+
+    </a> 
+    <ul class="nav nav-pills menu-text">
+        <li [ngClass]="currentRoute=='Home' ? 'nav-item yellow':'nav-item'">
+          <a class="nav-link" (click)="navigate('Home','/home')">Home</a>
+        </li>
+        <li [ngClass]="currentRoute=='Matches' ? 'nav-item yellow':'nav-item'">
+            <a class="nav-link" (click)="navigate('Matches','/matches')">Matches</a>
+        </li>
+        <li [ngClass]="currentRoute=='Teams' ? 'nav-item yellow':'nav-item'">
+            <a class="nav-link" (click)="navigate('Teams','/teams')">Teams</a>
+        </li>
+        <li [ngClass]="currentRoute=='Events' ? 'nav-item yellow':'nav-item'">
+            <a class="nav-link" (click)="navigate('Events','/events')">Events</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" (click)="changeTheme()"> 
+                <i></i>
+                <i *ngIf="!isLight" class="fa fa-sun-o" style="font-size:32px;color:rgb(255, 217, 0);"></i>
+                <i *ngIf="isLight" class="fa fa-moon-o" style="font-size:32px;color:#fff"></i>
+            </a>
+        </li>
+      </ul>
+
+  </nav>

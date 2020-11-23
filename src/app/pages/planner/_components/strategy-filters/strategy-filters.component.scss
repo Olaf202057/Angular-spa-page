@@ -1,0 +1,43 @@
+.strategy-filters {
+  .filters-section {
+    border-bottom: 1px solid var(--color-gray);
+
+    .section-header {
+      padding-top: 24px !important;
+
+      .section-title {
+        font-size: 14px !important;
+        font-family: "poppins-medium";
+      }
+    }
+
+    .section-content {
+      padding-top: 24px !important;
+      padding-bottom: 24px !important;
+
+      button {
+        &.active {
+          background-color: var(--color-success) !important;
+          color: white !important;
+        }
+      }
+
+      select {
+        width: 214px !important;
+        font-size: 12px !important;
+      }
+
+      .input-group {
+        width: 214px !important;
+
+        input {
+          font-size: 12px !important;
+        }
+
+        .input-group-append {
+          height: 32px !important;
+        }
+      }
+    }
+  }
+}

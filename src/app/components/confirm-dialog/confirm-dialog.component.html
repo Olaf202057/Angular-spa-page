@@ -1,0 +1,15 @@
+<!-- <button type="button" class="close d-flex justify-content-center align-items-center" (click)="onClose()">
+  <i class="material-icons">close</i>
+</button> -->
+<h1 mat-dialog-title class="text-white mb-0 p-2">
+  Confirm Deletion
+</h1>
+<div mat-dialog-content class="m-0 p-3">
+  <p class="mb-0 text-center" style="font-weight: 400; font-size: 1.2em;">{{ data.msg }}</p>
+</div>
+<div mat-dialog-actions class="d-flex justify-content-center align-items-center">
+  <button class="btn btn-danger btn-sm btn-fab text-capitalize" (click)="onDelete()">
+    <i class="fal fa-trash-alt mr-2"></i>
+    {{ data.operation }}
+  </button>
+</div>

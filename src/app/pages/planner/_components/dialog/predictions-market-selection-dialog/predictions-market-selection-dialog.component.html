@@ -1,0 +1,120 @@
+<div class="modal fade predictions-market-selection-dialog" id="predictions-market-selection-dialog" tabindex="-1" role="dialog" aria-labelledby="predictions-market-selection-dialog-label" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <span class="modal-title" id="predictions-market-selection-dialog-label">Predictions Manager</span>
+        <button type="button" class="close d-flex justify-content-center align-items-center" data-dismiss="modal" aria-label="Close">
+          <i class="material-icons">close</i>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="row ml-0 mr-0 prediction-list">
+          <ng-container *ngIf="!isShowTable && predictions">
+            <ng-container *ngIf="!selectedMarket">
+              <div class="col-12 d-flex justify-content-between align-items-center prediction-item prediction-item-border-bottom">
+                <span>Market Selection</span>
+                <i class="material-icons">touch_app</i>
+              </div>
+              <ng-container *ngFor="let market of marketSelections; index as i;">
+                <div class="col-12 d-flex justify-content-between align-items-center prediction-item prediction-item-border-bottom"
+                  [ngClass]="selectedMarketIndex === i ? 'text-success bg-semi-success' : ''" (click)="onSelectMarket(market, i)">
+                  <span>{{ market?.market }}</span>
+                  <span *ngIf="selectedMarketIndex === i">
+                    <i class="material-icons">done_all</i>
+                  </span>
+                </div>
+              </ng-container>
+            </ng-container>
+  
+            <ng-container *ngIf="!!selectedMarket">
+              <div class="col-12 mt-2 mb-2">
+                <p class="text-center mb-0 font-weight-bold">{{ selectedMarket.market }}</p>
+              </div>
+              <div class="col-12">
+                <div class="row">
+                  <ng-container *ngFor="let option of selectedMarket.options;index as i;">
+                    <div class="col">
+                      <mat-form-field class="col-12">
+                        <mat-select [value]="selectedMarketOptions[i]" (selectionChange)="onChangeMarketOption($event, i)">
+                          <ng-container *ngFor="let value of option.values;index as i;">
+                            <mat-option [value]="value">
+                              {{value}}
+                            </mat-option>
+                          </ng-container>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                  </ng-container>
+                </div>
+              </div>
+              <div class="col-12 mt-2 mb-2">
+                <p class="text-center mb-0 font-weight-bold">{{ selectedMarketOptions | predictionResult:selectedMarket }}</p>
+              </div>
+            </ng-container>
+          </ng-container>
+
+          <ng-container *ngIf="isShowTable && predictions">
+            <div class="col-12 mt-4 mb-2">
+              <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 predictions-table">
+          
+                <ng-container matColumnDef="market-selection">
+                  <th mat-header-cell *matHeaderCellDef> Market Selection </th>
+                  <td mat-cell *matCellDef="let element"> {{element.market}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="prediction">
+                  <th mat-header-cell *matHeaderCellDef> Prediction </th>
+                  <td mat-cell *matCellDef="let element"> {{element.outcome}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="actions">
+                  <th mat-header-cell *matHeaderCellDef> Actions </th>
+                  <td mat-cell *matCellDef="let element">
+                    <span style="cursor: pointer;" (click)="onDeletePrediction(element)">
+                      <i class="material-icons" style="color:red">delete</i>
+                    </span>
+                  </td>
+                </ng-container>
+              
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+
+      <div class="modal-footer d-flex justify-content-center">
+        <ng-container *ngIf="!isShowTable && predictions">
+          <ng-container *ngIf="!!selectedMarket">
+            <button type="button" class="btn btn-danger btn-sm btn-fab mr-3" data-dismiss="modal"
+              (click)="onDeselectMarket()">
+              <i class="far fa-undo mr-2"></i>
+              Back
+            </button>
+            <button type="button" class="btn btn-success btn-sm btn-fab ml-3"
+              (click)="onAddPrediction()">
+              <i class="fal fa-plus-circle mr-2"></i>
+              Add Prediction
+            </button>
+          </ng-container>
+        </ng-container>
+
+        <ng-container *ngIf="isShowTable && predictions">
+          <button type="button" class="btn btn-danger btn-sm btn-fab mr-3" data-dismiss="modal"
+            (click)="onCancelMarketSelection()">
+            <i class="far fa-undo mr-2"></i>
+            Cancel
+          </button>
+          <button type="button" class="btn btn-success btn-sm btn-fab ml-3"
+            (click)="onAddAnotherPrediction()">
+            <i class="fal fa-plus-circle mr-2"></i>
+            Add Prediction
+          </button>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

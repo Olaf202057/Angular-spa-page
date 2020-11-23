@@ -1,0 +1,33 @@
+<div class="container planner-container">
+  <div class="row">
+    <!-- <div class="col-12 planner-header">
+      <span class="text-capitalize planner-title">{{ tabTitle }}</span>
+    </div> -->
+    <div class="col-12 planner-content">
+      <mat-tab-group [(selectedIndex)]="focusedTabIndex"
+        (selectedTabChange)="onChangeSelectedTab($event)" (animationDone)="onAnimationDone()"
+        (focusChange)="onFocusChange($event)">
+        <mat-tab>
+          <ng-template mat-tab-label>
+            Upcoming Events
+          </ng-template>
+          <ng-template matTabContent>
+            <app-upcoming-events-table></app-upcoming-events-table>
+          </ng-template>
+        </mat-tab>
+        <mat-tab>
+          <ng-template mat-tab-label>
+            Strategy
+          </ng-template>
+          <ng-template matTabContent>
+            <app-strategy-list></app-strategy-list>
+            <app-strategy-tab></app-strategy-tab>
+          </ng-template>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</div>
+
+<app-note-dialog></app-note-dialog>
+<app-predictions-market-selection-dialog></app-predictions-market-selection-dialog>

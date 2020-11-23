@@ -1,0 +1,11 @@
+<div style="justify-content: center;">
+    <canvas baseChart style="background: transparent;" [ngClass]="isLight() ? 'light-chart':'dark-chart'"
+      [datasets]="barChartData"
+      [labels]="barChartLabels"
+      [options]="barChartOptions"
+      [plugins]="barChartPlugins"
+      [legend]="barChartLegend"
+      [chartType]="barChartType">
+    </canvas>
+  </div> 
+  

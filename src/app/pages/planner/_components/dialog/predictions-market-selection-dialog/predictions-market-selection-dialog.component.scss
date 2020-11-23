@@ -1,0 +1,129 @@
+.predictions-market-selection-dialog {
+  .modal-dialog {
+    .modal-content {
+      width: 500px !important;
+
+      .modal-header {
+        background-color: var(--color-success);
+        height: 51px !important;
+
+        .modal-title {
+          font-size: 14px !important;
+          font-family: "poppins-medium" !important;
+          color: white !important;
+        }
+
+        .close {
+          margin: 0;
+          position: absolute;
+          top: -10px;
+          right: -10px;
+          width: 30px;
+          height: 30px;
+          border-radius: 30px;
+          background-color: white !important;
+          color: red !important;
+          font-size: 9px;
+          opacity: 1;
+          z-index: 10;
+        }
+      }
+
+      .modal-body {
+        padding: 0px !important;
+
+        .prediction-list {
+          .prediction-item {
+            height: 47px !important;
+
+            span {
+              font-size: 14px !important;
+              font-family: "poppins-medium" !important;
+              color: var(--color-semi-gray) !important;
+
+              &.prediction-result {
+                color: var(--color-success) !important;
+              }
+            }
+
+            &:hover {
+              background-color: rgba($color: #1b6753, $alpha: 0.1) !important;
+
+              span {
+                color: var(--color-success) !important;
+              }
+            }
+          }
+
+          .prediction-item-border-bottom {
+            border-bottom: 2px solid var(--color-gray) !important;
+          }
+        }
+      }
+
+      .modal-footer {
+        border-top: none !important;
+
+        button {
+          min-width: 102px !important;
+          font-size: 12px !important;
+          font-family: "poppins" !important;
+
+          &.btn-success {
+            background-color: var(--color-success) !important;
+          }
+
+          i {
+            font-size: 12px !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+::ng-deep table.predictions-table {
+  width: 100%;
+
+  thead {
+    background-color: var(--color-success) !important;
+
+    tr {
+      th {
+        color: white !important;
+
+        &.mat-column-actions,
+        &.mat-column-prediction {
+          text-align: center !important;
+        }
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      td {
+        &.mat-column-actions,
+        &.mat-column-prediction {
+          text-align: center !important;
+        }
+      }
+    }
+  }
+}
+
+::ng-deep .mat-primary .mat-option.mat-selected {
+  .mat-option-text {
+    color: var(--color-success) !important;
+  }
+}
+
+::ng-deep .mat-form-field-underline {
+  .mat-form-field-ripple {
+    background-color: var(--color-success) !important;
+  }
+}
+
+::ng-deep .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+  color: var(--color-success) !important;
+}

@@ -1,0 +1,105 @@
+<div class="row m-0 bg-white strategy-filters">
+  <div class="col-12 filters-section">
+    <div class="row">
+      <div class="col-12 section-header">
+        <span class="section-title text-semi-gray">Active Filters</span>
+      </div>
+      <div class="col-12 section-content">
+        <div class="row">
+          <ng-container *ngFor="let filter of filters;index as i;">
+            <div class="col-auto mt-1 mb-1">
+              <button class="btn btn-visibility bg-semi-success text-capitalize text-success d-flex justify-content-between align-items-center"
+                (click)="onClickFilter(filter)">
+                <span>{{ filter }}</span>
+                <i class="fal fa-times-circle"></i>
+              </button>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 filters-section">
+    <div class="row">
+      <div class="col-12 section-header">
+        <span class="section-title text-semi-gray">Stats Filter</span>
+        <span matTooltip="Stats Filters sample text" matTooltipPosition="above">
+          <i class="fal fa-info-circle ml-3" style="cursor: pointer;"></i>
+        </span>
+      </div>
+      <div class="col-12 section-content">
+        <div class="row">
+          <div class="col-auto d-flex align-items-center">
+            <select class="custom-select border-0 bg-semi-success" [value]="statType"
+              (change)="onChangeStatType($event)">
+              <option selected>Stat Type</option>
+              <option *ngFor="let opt of statTypes;" [value]="opt">{{opt}}</option>
+            </select>
+          </div>
+
+          <div class="col-auto d-flex align-items-center">
+            <select class="custom-select border-0 bg-semi-success" [value]="statFilterType"
+              (change)="onChangeStatFilterType($event)">
+              <option selected>Filter Type</option>
+              <option *ngFor="let opt of filterTypes;" [value]="opt">{{opt}}</option>
+            </select>
+          </div>
+
+          <div class="col-auto input-group d-flex align-items-center">
+            <input type="number" class="form-control bg-semi-success text-success border-0" placeholder="Value"
+              [value]="statFilterValue" (change)="onChangeStatFilterValue($event)">
+            <div class="input-group-append">
+              <button class="btn btn-semi-success d-flex align-items-center text-white"
+                type="button">
+                #
+              </button>
+            </div>
+          </div>
+
+          <div class="col-auto">
+            <button class="btn btn-sm text-white btn-semi-success" (click)="onAddStatFilter()">
+              <i class="fal fa-plus-circle mr-2"></i>
+              Add
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 filters-section">
+    <div class="row">
+      <div class="col-12 section-header">
+        <span class="section-title text-semi-gray">Correct Score Filters</span>
+        <span matTooltip="Correct Score Filters sample text" matTooltipPosition="above">
+          <i class="fal fa-info-circle ml-3" style="cursor: pointer;"></i>
+        </span>
+      </div>
+      <div class="col-12 section-content">
+        <div class="row">
+          <div class="col-auto d-flex align-items-center">
+            <select class="custom-select border-0 bg-semi-success text-success"
+              [value]="homeGoals" (change)="onChangeHomeGoals($event)">
+              <option *ngFor="let goal of goalsArr;index as i;" [value]="i">Home Goals {{ i }}</option>
+            </select>
+          </div>
+
+          <div class="col-auto d-flex align-items-center">
+            <select class="custom-select border-0 bg-semi-success text-success"
+              [value]="awayGoals" (change)="onChangeAwayGoals($event)">
+              <option *ngFor="let goal of goalsArr;index as i;" [value]="i">Away Goals {{ i }}</option>
+            </select>
+          </div>
+
+          <div class="col-auto">
+            <button class="btn btn-sm text-white btn-semi-success" (click)="onAddCorrectScoreFilter()">
+              <i class="fal fa-plus-circle mr-2"></i>
+              Add
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

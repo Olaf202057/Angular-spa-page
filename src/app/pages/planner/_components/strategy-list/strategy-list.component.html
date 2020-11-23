@@ -1,0 +1,37 @@
+<div class="row m-0 bg-white strategy-tab">
+  <div class="col-10 d-flex align-items-center tab-title">
+    <span>Active Strategies</span>
+  </div>
+  <div class="col-2 mt-2 mb-2 d-flex align-items-center">
+    <button class="btn btn-primary btn-sm right" (click)="onSaveStrategy()">
+      <i class="fal fa-save mr-2"></i>
+      Save
+    </button>
+  </div>
+  <div class="seperator"></div>
+  <div class="col-12 tab-content d-flex align-items-center">
+    <div class="row">
+      <ng-container *ngFor="let strategy of strategies;index as i;">
+        <div class="col-auto mt-2 mb-2">
+          <button class="btn btn-visibility d-flex align-items-center justify-content-between"
+            [ngClass]="isActiveStrategy(strategy) ? 'bg-success text-white' : 'bg-semi-success text-success'"
+            (click)="onChangeTargetStrategy(strategy)">
+            <span>{{strategy?.name}}</span>
+            <span *ngIf="selectedStrategy.strategyId !== strategy.strategyId" (click)="onDeleteStrategy(strategy)">
+              <i class="fal fa-times-circle"></i>
+            </span>
+            <span *ngIf="selectedStrategy.strategyId === strategy.strategyId">
+              <i class="fal fa-check-circle"></i>
+            </span>
+          </button>
+        </div>
+      </ng-container>
+      <div class="col-auto mt-2 mb-2 d-flex align-items-center">
+        <button class="btn btn-planner btn-sm" (click)="onCreateStrategy()">
+          <i class="fal fa-plus-circle mr-2"></i>
+          New Strategy
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

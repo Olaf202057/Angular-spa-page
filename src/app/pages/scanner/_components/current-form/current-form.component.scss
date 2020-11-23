@@ -1,0 +1,333 @@
+
+.round-style{
+    -moz-border-radius: 15px;
+ border-radius: 15px;
+    border:solid 1px black;
+    padding:5px;
+    height:25px;
+    width:90%;
+    border:none;
+    background-color: rgb(220, 236, 228);
+}
+
+.round-style-select{
+  -moz-border-radius: 15px;
+    border-radius: 15px;
+    border:solid 1px black;
+    padding:5px;
+    height:30px;
+    width:50%;
+    border:none;
+    background-color: rgb(220, 236, 228);
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  
+  .table {
+    border-spacing: 0 0.85rem !important;
+    width:100% !important;
+  }
+  
+  .table .dropdown {
+    display: inline-block;
+  }
+  
+  .table td,
+  .table th {
+    vertical-align: middle;
+    margin-bottom: 10px;
+    border: none;
+  }
+ .border-bottom{
+   border-bottom: solid 1px grey;
+ }
+ .border-bottom.last{
+  border-bottom: none !important; 
+}
+  full-width{
+      width:100%
+  }
+  
+  .table thead tr,
+  .table thead th {
+    border: none;
+    font-size: 14px;
+    letter-spacing: 1px;
+    //text-transform: uppercase;
+    background-color: #0e5f4b ;
+  }
+
+  .center-align{
+    text-align: center !important;
+    color:rgb(133, 131, 131) !important;
+  }
+
+ 
+  
+  .table td {
+    background: #fff;
+  }
+  .table th:first-child {
+    border-top-left-radius: 10px;
+    //border-bottom-left-radius: 10px;
+  }
+  .table th:last-child {
+    border-top-right-radius: 10px;
+    //border-bottom-right-radius: 10px;
+  }
+ /*  .table td:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+  
+  .table td:last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  } */
+
+  .table tr:last-child > td:last-child {
+    border-bottom-right-radius: 10px;
+  } 
+
+  .table tr:last-child > td:first-child {
+    border-bottom-left-radius: 10px;
+  } 
+  
+  .avatar {
+    width: 2.75rem;
+    height: 2.75rem;
+    line-height: 3rem;
+    border-radius: 50%;
+    display: inline-block;
+    background: transparent;
+    position: relative;
+    text-align: center;
+    color: #868e96;
+    font-weight: 700;
+    vertical-align: bottom;
+    font-size: 1rem;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  .avatar-sm {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 0.83333rem;
+    line-height: 1.5;
+  }
+  
+  .avatar-img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+  }
+  
+  .avatar-blue {
+    background-color: #c8d9f1;
+    color: #467fcf;
+  }
+  
+  table.dataTable.dtr-inline.collapsed
+    > tbody
+    > tr[role="row"]
+    > td:first-child:before,
+  table.dataTable.dtr-inline.collapsed
+    > tbody
+    > tr[role="row"]
+    > th:first-child:before {
+    top: 28px;
+    left: 14px;
+    border: none;
+    box-shadow: none;
+  }
+  
+  table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > td:first-child,
+  table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > th:first-child {
+    padding-left: 48px;
+  }
+  
+  table.dataTable > tbody > tr.child ul.dtr-details {
+    width: 100%;
+  }
+  
+  table.dataTable > tbody > tr.child span.dtr-title {
+    min-width: 50%;
+  }
+  
+  table.dataTable.dtr-inline.collapsed > tbody > tr > td.child,
+  table.dataTable.dtr-inline.collapsed > tbody > tr > th.child,
+  table.dataTable.dtr-inline.collapsed > tbody > tr > td.dataTables_empty {
+    padding: 0.75rem 1rem 0.125rem;
+  }
+  
+  div.dataTables_wrapper div.dataTables_length label,
+  div.dataTables_wrapper div.dataTables_filter label {
+    margin-bottom: 0;
+  }
+  
+  @media (max-width: 867px) {
+    div.dataTables_wrapper div.dataTables_paginate ul.pagination {
+      -ms-flex-pack: center !important;
+      justify-content: center !important;
+      margin-top: 1rem;
+    }
+  }
+  
+  .btn-icon {
+    background: #fff;
+  }
+  .btn-icon .bx {
+    font-size: 20px;
+  }
+  
+  .btn .bx {
+    vertical-align: middle;
+    font-size: 20px;
+  }
+  
+  .dropdown-menu {
+    padding: 0.25rem 0;
+  }
+  
+  .dropdown-item {
+    padding: 0.5rem 1rem;
+  }
+  
+  .badge {
+    padding: 0.5em 0.75em;
+  }
+  
+  .badge-success-alt {
+    background-color: #d7f2c2;
+    color: #7bd235;
+  }
+  
+  .table a {
+    color: #212529;
+  }
+  
+  .table a:hover,
+  .table a:focus {
+    text-decoration: none;
+  }
+  
+  table.dataTable {
+    margin-top: 12px !important;
+  }
+  
+  .icon > .bx {
+    display: block;
+    min-width: 1.5em;
+    min-height: 1.5em;
+    text-align: center;
+    font-size: 1.0625rem;
+  }
+  
+  .btn {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .avatar-blue {
+        background-color: #c8d9f1;
+        color: #467fcf;
+      }
+  
+      .avatar-pink {
+        background-color: #fcd3e1;
+        color: #f66d9b;
+}
+
+
+.light-mode .nav-link.active{
+    color:#fff !important;
+    background-color: #146853 !important;
+}
+
+.dark-mode .nav-link.active{
+  color:#000 !important;
+  background-color: rgb(255, 208, 0) !important;
+}
+
+.light-mode .nav-link{
+    color: #146853 ;
+    background-color: #fff !important;
+    height:42px !important;
+    font-size: 18px !important;
+    text-align: center !important;
+    font-weight: bold !important;
+    width:84px !important;
+}
+
+.dark-mode .nav-link{
+  color: #000 ;
+  background-color: #fff !important;
+  height:42px !important;
+  font-size: 18px !important;
+  text-align: center !important;
+  font-weight: bold !important;
+  width:84px !important;
+}
+
+#dropdownBasic1{
+  font-size: 17px !important;
+}
+
+.form-outlet{
+    background-color: #fff !important;
+    margin-top: 0px !important;
+    top:0% !important;
+    width:100% !important;
+}
+
+.dropdown-body{
+  border-radius: 20px !important;
+  background-color: #d4ece5 !important;
+  color:#146853 !important;
+}
+
+.dropdown-body-dark{
+  border-radius: 20px !important;
+  color: #000 !important;
+  background-color: #fff !important;
+}
+
+.dropdown-body>button:hover{
+  background-color: #146853 !important;
+  color:rgb(255, 208, 0) !important;
+}
+
+.dropdown-body-dark>button:hover{
+  background-color: #000 !important;
+  color:rgb(255, 208, 0) !important;
+}
+
+::ng-deep .dropdown-menu{
+    width: 100% !important;
+}
+
+
+
+
+
+.nav-tabs > .nav-items:last-of-type > .nav-link{
+    border-top-right-radius: 12x;
+}
+
+.nav-tabs > .nav-items:first-of-type > .nav-link{
+    border-top-left-radius: 12px;
+}
+

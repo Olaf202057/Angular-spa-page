@@ -1,0 +1,22 @@
+button {
+  &.btn-planner {
+    color: white !important;
+    background-color: var(--color-success) !important;
+  }
+
+  &.btn-fab {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  &.btn-semi-success {
+    background-color: var(--color-success) !important;
+  }
+
+  &.btn-visibility {
+    width: 214px !important;
+    height: 30px !important;
+    font-size: 12px !important;
+  }
+}

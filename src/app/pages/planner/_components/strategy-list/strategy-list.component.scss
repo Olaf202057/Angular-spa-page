@@ -1,0 +1,32 @@
+.strategy-tab {
+  .tab-title {
+    height: 55px !important;
+    border-bottom: 1px solid var(--color-gray) !important;
+
+    span {
+      font-size: 14px !important;
+      font-family: "poppins-medium" !important;
+      color: var(--color-semi-gray) !important;
+    }
+  }
+
+  .tab-content {
+    min-height: 65px !important;
+
+    button {
+      font-size: 12px !important;
+      font-family: "poppins" !important;
+    }
+  }
+
+  .seperator {
+    border-bottom: 1px solid gray;
+    width: 100% !important;
+    margin: 0px 15px 0px 15px;
+  }
+
+  .right {
+    position: absolute;
+    right: 10px;
+  }
+}

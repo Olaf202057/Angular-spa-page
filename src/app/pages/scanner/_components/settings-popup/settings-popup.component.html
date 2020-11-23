@@ -1,0 +1,98 @@
+<img src="./../../assets/close.png" class="pull-right" style="width:30px; margin-top:-15px !important; margin-right:-15px !important;cursor: pointer;font-weight:bold;" (click)="modal.dismiss('Cross click')">
+<div class="modal-header">
+    <div class="row top-10 bottom-10">
+        <div class="col-md-12" style="font-size: 20px !important;font-weight: bold;">
+            Settings
+        </div>
+    </div>
+</div>
+<div class="modal-body" [ngClass]="isLight() ? 'grey-text' : 'grey-text'">
+    <div class="row">
+        <div class="col-md-12 top-10 bottom-10" style="border-bottom: solid 1px #476960 !important;font-size: 17px !important;font-weight: bold;">Main Column Visibility
+            <div class="row top-10 bottom-10" *ngIf="activeMainColumnVisibility && activeMainColumnVisibility.length">
+                <div class="col-md-3" *ngFor="let entry of getActiveColumnVisibility()">
+
+                    <!-- <button type="button" *ngIf="entry" (click)="toggle(entry)" style="font-size: 17px !important;" [ngClass]="getClass(entry?.visible)">
+                        {{entry?.value}}
+                         <i class="fa fa-check-circle right-10" *ngIf="entry?.visible" style="font-size:21px !important;color: rgb(255, 208, 0);float: right;margin-right:-4px !important"></i>
+                         <i class="fa fa-times-circle right-10" *ngIf="!entry?.visible" style="font-size:21px !important;color:#07241d;float: right;margin-right:-4px !important"></i>
+                    </button> -->
+
+                    <button *ngIf="entry" type="button" (click)="toggle(entry)" [ngClass]="getClass(entry?.visible)">
+                        {{entry?.value}}
+                        <i class='fa fa-check-circle right-10 ok-button pull-right'></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 top-10 bottom-10" style="border-bottom: solid 1px #486960 !important;font-size: 17px !important;font-weight: bold;">Previous Stats Column Visibility
+            <div class="row top-10 bottom-10" *ngIf="activePreviousStatsColumnVisibility && activePreviousStatsColumnVisibility.length">
+                <div class="col-md-3" *ngFor="let entry of getActivePreviousStatsColumnVisibility()">
+                    <!-- <button type="button" *ngIf="entry" (click)="toggle(entry)" style="font-size: 18px !important;" [ngClass]="getClass(entry?.visible)">
+                        {{entry?.value}}
+                         <i class="fa fa-check-circle right-10 bottom-5" *ngIf="entry?.visible" style="font-size:21px !important;color: rgb(255, 208, 0);float: right;margin-right:-4px !important;"></i>
+                         <i class="fa fa-times-circle right-10 bottom-5" *ngIf="!entry?.visible" style="font-size:21px !important;color:#07241d;float: right;margin-right:-4px !important;"></i>
+                    </button> -->
+
+                    <button *ngIf="entry" type="button" (click)="toggle(entry)" [ngClass]="getClass(entry?.visible)">
+                        {{entry?.value}}
+                        <i class='fa fa-check-circle right-10 ok-button pull-right'></i>
+                    </button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 top-10 bottom-20" style="border-bottom: solid 1px #42635a !important;font-size: 17px !important;font-weight: bold;">Misc Column Visibility
+            <div class="row top-10 bottom-10" *ngIf="activeMiscStatsColumnVisibility && activeMiscStatsColumnVisibility.length">
+                <div class="col-md-3" *ngFor="let entry of getActiveMiscColumnVisibility()">
+                    <!-- <button type="button" *ngIf="entry" (click)="toggle(entry)" style="font-size: 18px !important;" [ngClass]="getClass(entry?.visible)">
+                        {{entry?.value}}
+                         <i class="fa fa-check-circle right-10 bottom-5" *ngIf="entry?.visible" style="font-size:20px !important;color: rgb(255, 208, 0);float: right;margin-right:0 !important;"></i>
+                         <i class="fa fa-times-circle right-10 bottom-5" *ngIf="!entry?.visible" style="font-size:20px !important;color:#07241d;float: right;margin-right:0 !important;"></i>
+                    </button> -->
+
+                    <button *ngIf="entry" type="button" (click)="toggle(entry)" [ngClass]="getClass(entry?.visible)">
+                        {{entry?.value}}
+                        <i class='fa fa-check-circle right-10 ok-button pull-right'></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 top-10 bottom-20" style="border-bottom: solid 1px #42635a !important;font-size: 17px !important;font-weight: bold;">Grid Color Change
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="btn-group" style="width:100%">
+                        <!--                     <i class="fa fa-square fa-lg top-10" style="height:32px !important;font-size:32px !important"  [style.color]="color"></i>&nbsp;-->
+                    <input [(colorPicker)]="color" [(cpToggle)]="toggleColorPicker" [ngClass]="isLight() ? 'round-style-picker top-10 light':'round-style-picker top-10 dark'" (click)="togglePicker()" style="width:100% !important;" [value]="color"/>
+                    <button type="button" (click)="togglePicker()" style = "height:32px!important;" [ngClass]="isLight() ? 'btn btn-pair btn-soccer-primary-2-right': 'btn btn-pair btn-soccer-dark-primary-right'">
+                        <i class="fa fa-eyedropper fa-lg" style="color: #fff;margin-left:-5px !important"></i>
+                    </button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" (click)="applyColorToGrid()" style = "margin-top:10px;" [ngClass]="isLight() ? 'btn btn-soccer-primary btn-lg top-5 bottom-10 rounded-style' : 'btn btn-soccer-dark-primary btn-lg top-5 bottom-10 rounded-style'">
+                        Apply Grid Color
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 top-10 bottom-10">
+            <button type="button" (click)="deleteGrid()" style="font-size: 13px !important;" class="btn btn-soccer-danger btn-lg top-5 bottom-10 right-10 pull-left rounded-style">
+                Delete Grid
+                 <i class="fa fa-times-circle fa-lg right-10" style="color:#fff;float: right;margin-right:0 !important;bottom:5px !important"></i>
+            </button>
+        </div>
+        <div class="col-md-6"></div>
+        <div class="col-md-3 top-10 bottom-10">
+            <button type="button" (click)="publishToScoreGrid()" class="btn btn-soccer-apply btn-lg top-5">Apply</button>
+        </div>
+    </div>
+</div>

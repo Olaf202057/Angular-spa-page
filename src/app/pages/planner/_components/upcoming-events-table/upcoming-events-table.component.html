@@ -1,0 +1,76 @@
+<cdk-virtual-scroll-viewport tvsItemSize="48" class="mat-elevation-z8" #containerTable>
+  <table mat-table matSort [dataSource]="dataSource">
+
+    <ng-container matColumnDef="kick-off">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Kick-Off Time </th>
+      <td mat-cell *matCellDef="let element"> {{element.kickOffTime}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="country">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Country </th>
+      <td mat-cell *matCellDef="let element"> {{element.country}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="league">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> League </th>
+      <td mat-cell *matCellDef="let element"> {{element.league}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="home">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Home </th>
+      <td mat-cell *matCellDef="let element">
+        <img *ngIf="element.homeImg" alt="home-img" [src]="element.homeImg">
+        {{element.home}}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="away">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Away </th>
+      <td mat-cell *matCellDef="let element">
+        <img *ngIf="element.awayImg" alt="home-img" [src]="element.awayImg">
+        {{element.away}}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="predictions">
+      <th mat-header-cell *matHeaderCellDef> Predictions </th>
+      <td mat-cell *matCellDef="let element">
+        <a href="#" (click)="onAddPredictions($event, element)">
+          <!-- <img alt="predictions" src="assets/img/predictions.svg"> -->
+          <i class="fal fa-golf-ball" style="cursor: pointer; color: #7f8593; font-size: 20px;"></i>
+        </a>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="notes">
+      <th mat-header-cell *matHeaderCellDef> Notes </th>
+      <td mat-cell *matCellDef="let element">
+        <a href="#" (click)="onAddNotes($event, element)">
+          <i class="fal fa-clipboard-list" style="cursor: pointer; color: #7f8593; font-size: 20px;"></i>
+        </a>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="strategies">
+      <th mat-header-cell *matHeaderCellDef> Strategy </th>
+      <td mat-cell *matCellDef="let element">
+          <button mat-button [matMenuTriggerFor]="strategyMatchMenu">
+            <img src=" assets//strategy.png" class="strategyicon">
+          </button>
+          <mat-menu #strategyMatchMenu="matMenu">
+            <label mat-menu-item *ngFor="let strategy of strategies" (click)="$event.stopPropagation()">
+              <input 
+                type="checkbox" 
+                (click)="onChangeStrategyMatch($event, strategy, element)"
+                [checked]="isLinked(strategy, element)"
+              > 
+              {{strategy.name}}
+            </label>
+          </mat-menu>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</cdk-virtual-scroll-viewport>

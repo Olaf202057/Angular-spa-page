@@ -1,0 +1,401 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "./assets/scss/buttons";
+@import "./assets/scss/colors";
+@import "~bootstrap/dist/css/bootstrap.css";
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+:root {
+    --dark-black: "";
+    --light-black: "";
+    --header-height: 80px;
+    --footer-height: 40px;
+    --screen-size-sm: 576px;
+    --screen-size-md: 720px;
+    --screen-size-lg: 960px;
+    --screen-size-xl: 1140px;
+    --container-size-sm: 540px;
+    --container-size-md: 720px;
+    --container-size-lg: 960px;
+    --container-size-xl: 1140px;
+    --color-success: #1b6753;
+    --color-semi-success: #1b6753;
+    --color-warning: #fdd100;
+    --color-gray: #f9f9f9;
+    --color-semi-gray: #7f8593;
+}
+
+* {
+    font-family: "poppins";
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-dialog-container {
+    padding: 0px !important;
+}
+
+.mat-tab-header {
+    border-bottom: 1px solid var(--color-success) !important;
+}
+
+.mat-tab-label {
+    padding: 0 !important;
+    background-color: white !important;
+    .mat-tab-label-content {
+        font-size: 16px !important;
+        font-family: "poppins-medium" !important;
+    }
+    &.mat-tab-label-active {
+        .mat-tab-label-content {
+            width: 100%;
+            height: 100%;
+            color: var(--color-success) !important;
+            border: 1px solid var(--color-success) !important;
+            border-bottom: none !important;
+            background-color: rgba($color: #1b6753, $alpha: 0.1) !important;
+        }
+    }
+}
+
+.mat-ink-bar {
+    display: none !important;
+}
+
+.cdk-overlay-container {
+    z-index: 2000 !important;
+}
+
+.confirm-dialog {
+    position: relative !important;
+    .close {
+        margin: 0;
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        width: 30px;
+        height: 30px;
+        border-radius: 30px;
+        background-color: white !important;
+        color: red !important;
+        font-size: 9px;
+        opacity: 1;
+        z-index: 10;
+    }
+    .mat-dialog-title {
+        background-color: var(--color-success) !important;
+    }
+}
+
+.grey-text {
+    color: grey;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.mat-sort-header-button {
+    outline: none !important;
+}
+
+button,
+button:focus {
+    outline: none !important;
+}
+
+.white-text {
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.grey-text-h1 {
+    color: grey;
+    font-weight: bold;
+    font-size: 34px !important;
+}
+
+.dropdown-menu {
+    max-height: 200px !important;
+    width: 100% !important;
+    overflow-y: auto !important;
+}
+
+#dropdownBasic1::after {
+    float: right !important;
+    font-size: 22px;
+}
+
+#dropdownBasic1 {
+    font-size: 26px !important;
+    float: left !important;
+}
+
+.white-text-h1 {
+    color: white;
+    font-weight: bold;
+    font-size: 34px !important;
+}
+
+.popover {
+    max-width: 80% !important;
+    /* Max Width of the popover (depending on the container!) */
+    padding: 0px !important;
+}
+
+.btn-soccer-primary-2 {
+    background-color: #146853 !important;
+    font-size: 13px;
+    color: rgb(255, 208, 0);
+    letter-spacing: 1px;
+    line-height: 15px;
+    border-radius: 40px;
+    background: transparent;
+    transition: all 0.3s ease 0s;
+}
+
+.btn-soccer-primary-2-white {
+    background-color: #146853 !important;
+    font-size: 13px;
+    color: #fff !important;
+    letter-spacing: 1px;
+    line-height: 20px;
+    height: 40px !important;
+    width: 40px !important;
+    font-size: 21px !important;
+    border-radius: 40px;
+    background: transparent;
+    transition: all 0.3s ease 0s;
+    border-color: #fff
+}
+
+.btn-soccer-dark-primary-2 {
+    background-color: rgb(255, 208, 0) !important;
+    font-size: 13px;
+    color: rgb(41, 39, 39);
+    letter-spacing: 1px;
+    line-height: 15px;
+    border-radius: 40px;
+    background: transparent;
+    transition: all 0.3s ease 0s;
+}
+
+//{size: 'lg', windowClass: 'modal-xl'}
+.top {
+    margin-top: 20px;
+}
+
+.left {
+    margin-left: 10px;
+}
+
+.right {
+    margin-right: 10px;
+}
+
+.right-5 {
+    margin-right: 5px;
+}
+
+.right-10 {
+    margin-right: 10px;
+}
+
+.left-5 {
+    margin-left: 5px;
+}
+
+.top-minus-10 {
+    margin-top: -10px;
+}
+
+.page {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.float-right {
+    float: right;
+}
+
+.top-center {
+    top: 50% !important;
+}
+
+.left-center {
+    left: 50% !important;
+}
+
+.top {
+    margin-top: 20px;
+}
+
+.left {
+    margin-left: 10px !important;
+}
+
+.right {
+    margin-right: 10px !important;
+}
+
+.right-5 {
+    margin-right: 5px;
+}
+
+.right-10 {
+    margin-right: 10px;
+}
+
+.left-5 {
+    margin-left: 5px;
+}
+
+.top-minus-10 {
+    margin-top: -10px;
+}
+
+.right-5 {
+    margin-right: 5px;
+}
+
+.right-10 {
+    margin-right: 10px;
+}
+
+.top-5 {
+    margin-top: 5px;
+}
+
+.top-10 {
+    margin-top: 10px !important;
+}
+
+.bottom-5 {
+    margin-bottom: 5px;
+}
+
+.font-green {
+    color: green !important;
+}
+
+.font-red {
+    color: red !important;
+}
+
+.bottom-10 {
+    margin-bottom: 10px;
+}
+
+.left-5 {
+    margin-left: 5px;
+}
+
+.top-10 {
+    margin-top: 10px !important;
+}
+
+.right-5 {
+    margin-right: 5px;
+}
+
+.right-10 {
+    margin-right: 10px;
+}
+
+.top-5 {
+    margin-top: 5px;
+}
+
+.top-10 {
+    margin-top: 10px !important;
+}
+
+.bottom-5 {
+    margin-bottom: 5px;
+}
+
+.bottom-10 {
+    margin-bottom: 10px;
+}
+
+top {
+    margin-top: 20px;
+}
+
+.left {
+    margin-left: 10px !important;
+}
+
+.right {
+    margin-right: 10px;
+}
+
+.right-5 {
+    margin-right: 5px;
+}
+
+.right-10 {
+    margin-right: 10px;
+}
+
+.left-5 {
+    margin-left: 5px;
+}
+
+.top-minus-10 {
+    margin-top: -10px;
+}
+
+.base-background {
+    background: #f7f4f4 !important;
+}
+
+.base-dark-background {
+    background: #000 !important;
+}
+
+.resolution-width-header {
+    width: 100% !important;
+}
+
+.resolution-width-home {
+    width: 100% !important;
+    /* padding-right:30px !important;
+    right:30px !important; */
+}
+
+.resolution-width-table {
+    width: 100% !important;
+}
+
+.full-width-header {
+    width: 100% !important;
+}
+
+.full-width-home {
+    width: 100% !important;
+}
+
+.full-width-table {
+    width: 100% !important;
+}
+
+@media only screen and (min-width:1800px) and (max-width:5000px) {
+    .resolution-width-header {
+        width: 100% !important;
+    }
+    .resolution-width-home {
+        width: 100% !important;
+        padding-right: 45px !important;
+        right: 45px !important;
+    }
+    .resolution-width-table {
+        width: 100% !important
+    }
+}

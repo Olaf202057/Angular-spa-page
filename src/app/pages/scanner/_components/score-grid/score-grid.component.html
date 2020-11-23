@@ -1,0 +1,92 @@
+<!-- grid title -->
+<div class="grid-header-top" [style.background-color]="color">
+  <div class="grid-title">
+    <span>{{grid.name}}</span>
+  </div>
+  <div class="grid-filter">
+    <button mat-button (click)="open(quickFilters)">
+      <img src="assets/img/psd/quick_filter.png">&nbsp;&nbsp;Quick Filters
+    </button>
+    <button mat-button (click)="open(statsFilters)">
+      <img src="assets/img/psd/stats_filter.png">&nbsp;&nbsp;Stats Filters
+    </button>
+    <button mat-button (click)="open(settings)">
+      <img src="assets/img/psd/setting.png">
+    </button>
+  </div>
+</div>
+
+<!-- grid -->
+<div style="font-size: 13px; font-family: Verdana; float: left; width: 100%;">
+  <div style="padding-right: 2px;">
+    <jqxGrid #mygrid id="mygrid"
+        [width]="'100%'" [source]="dataAdapter" [columns]="columns"
+        [height]="600"
+        [virtualmode]="true" [rendergridrows]="rendergridrows"
+        [columngroups]="columngroups" [rowsheight]="60" [columnsheight]="50"
+        [enablehover]="false" [selectionmode]="'none'" (onCellclick)="CellClick($event)"
+        [sortable]="true"
+        [theme]="'material-green'"
+        >
+        <!-- [showfilterbar]="true" -->
+    </jqxGrid>
+  </div>
+</div>
+
+<!-- pop over -->
+<div #homeformPopover style="position: fixed; z-index: 1000; display: none;">
+  <app-historical-stats-pop-over *ngIf="curMatch.preMatchOdds" [dataOptions]="curMatch.homeForm"
+      [preMatchOdds]="curMatch.preMatchOdds" [homeId]="curMatch.homeId" [type]="'Home'"
+      [league]="curMatch.league" [position]="popover_pos">
+
+  </app-historical-stats-pop-over>
+</div>
+<div #awayformPopover style="position: fixed; z-index: 1000; display: none;">
+  <app-historical-stats-pop-over *ngIf="curMatch.preMatchOdds" [dataOptions]="curMatch.awayForm"
+      [homeId]="curMatch.awayId" [preMatchOdds]="curMatch.preMatchOdds" [type]="'Away'"
+      [league]="curMatch.league" [position]="popover_pos">
+
+  </app-historical-stats-pop-over>
+</div>
+
+<div #matchMomentum1 style="position: fixed; z-index: 1001; display: none;">
+  <app-momentum-spline-chart [dataOptions]="curMatch.graphicalData1" [labels]="curMatch.splineGraphLabel"
+      [position]="popover_pos">
+  </app-momentum-spline-chart>
+</div>
+
+<div #matchMomentum2 style="position: fixed; z-index: 1001; display: none;">
+  <app-momentum-spline-chart [dataOptions]="curMatch.graphicalData2" [labels]="curMatch.splineGraphLabel"
+      [position]="popover_pos">
+  </app-momentum-spline-chart>
+</div>
+
+
+<!-- dialog -->
+<ng-template #quickFilters let-modalQuick>
+  <app-quick-filter-popup [modal]="modalQuick" [gridNumber]="gridNumber"
+      [gamesCurrentlyInFilters]="gamesCurrentlyInFilters" [miscFilters]="miscFilters">
+  </app-quick-filter-popup>
+
+</ng-template>
+
+<ng-template #statsFilters let-modalStats>
+  <app-stats-filter-popup [modal]="modalStats" [scoreFilters]="scoreFilters" [gridNumber]="gridNumber"
+      [filters]="activeFilters">
+  </app-stats-filter-popup>
+</ng-template>
+
+<ng-template #strategyPopup let-modalQuick>
+  <!-- <app-strategy-popup [modal]="modalQuick" [gridNumber]="gridNumber" [gamesCurrentlyInFilters]="gamesCurrentlyInFilters" [miscFilters]="miscFilters">
+  </app-strategy-popup> -->
+  <app-strategy-popup [modal]="modalQuick" [gridNumber]="gridNumber">
+  </app-strategy-popup>
+</ng-template>
+
+<ng-template #settings let-modalSettings>
+  <app-settings-popup [modal]="modalSettings" [color]="color" [gridNumber]="gridNumber"
+      [activeMainColumnVisibility]="activeMainColumnVisibility"
+      [activePreviousStatsColumnVisibility]="activePreviousStatsColumnVisibility"
+      [activeMiscStatsColumnVisibility]="activeMiscStatsColumnVisibility">
+  </app-settings-popup>
+</ng-template>

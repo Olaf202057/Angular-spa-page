@@ -1,0 +1,28 @@
+.strategy-appearance {
+  height: 65px !important;
+  padding-top: 16px !important;
+  padding-bottom: 16px !important;
+
+  .input-group {
+    input {
+      font-size: 12px !important;
+      color: var(--color-success) !important;
+    }
+
+    .input-group-append {
+      height: 32px !important;
+    }
+  }
+
+  .form-check {
+    input {
+      width: 24px !important;
+      height: 24px !important;
+    }
+
+    label {
+      font-size: 12px !important;
+      font-family: "poppins" !important;
+    }
+  }
+}

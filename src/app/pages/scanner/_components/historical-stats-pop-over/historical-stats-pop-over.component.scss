@@ -1,0 +1,135 @@
+.btn-soccer-primary{
+    background-color:#146853 !important;
+    font-size: 13px;
+    color: #fff;
+    line-height: 15px;
+    border-radius: 40px;
+    background: transparent;
+    transition: all 0.3s ease 0s;
+    padding: 6px;
+}
+
+.btn-soccer-dark{
+    background-color:#000 !important;
+    font-size: 13px;
+    color: #fff;
+    line-height: 15px;
+    border-radius: 40px;
+    background: transparent;
+    transition: all 0.3s ease 0s;
+}
+
+.btn-soccer-secondary{
+    background-color:grey !important;
+    font-size: 13px;
+    color: #fff;
+    line-height: 15px;
+    border-radius: 40px;
+    background: transparent;
+    transition: all 0.3s ease 0s;
+    padding: 6px;
+}
+
+.btn-green{
+    background-color: green !important;
+    color: #fff;
+    font-size: 13px;
+    letter-spacing: 1px;
+    background: transparent;
+    transition: all 0.3s ease 0s;
+}
+
+.btn-red{
+    background-color: red !important;
+    color:#fff;
+    font-size: 13px;
+    letter-spacing: 1px;
+    background: transparent;
+    transition: all 0.3s ease 0s;
+    
+}
+
+.btn-grey{
+    background-color: grey !important;
+    color: #fff;
+    letter-spacing: 1px;
+    background: transparent;
+    transition: all 0.3s ease 0s;
+}
+
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    padding: 6px 0px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+}
+    
+
+.btn-soccer-yellow{
+    background-color:rgb(255, 166, 0) !important;
+    font-size: 13px;
+    color: #fff;
+    line-height: 15px;
+    border-radius: 40px;
+    background: transparent;
+    transition: all 0.3s ease 0s;
+    padding: 6px;
+}
+
+
+.light-mode-border{
+    border-bottom: solid 1px #146853 !important;
+}
+
+.dark-mode-border {
+    border-bottom: solid 1px #3b3f3e !important;
+}
+
+.row {
+    margin: 0 !important;
+}
+
+.main-container {
+    background: white !important;
+    height: 220px !important;
+    width: 450px !important;
+    border: solid 1px #146853;
+}
+
+.arrow-up {
+    width: 0; 
+    height: 0; 
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 25px solid #146853;
+  }
+
+
+// triangle
+
+.info-panel {
+    display: block;
+    position: relative;
+    border: 1px solid #146853;
+}
+.info-panel:before, .info-panel:after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 100%;
+    width: 0;
+    height: 0;
+}
+.info-panel:before {
+    border-left: 14px solid transparent;
+    border-right: 14px solid transparent;
+    border-bottom: 25px solid #146853;
+}
+.info-panel:after {
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    border-bottom: 23px solid white;
+}

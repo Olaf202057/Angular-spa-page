@@ -1,0 +1,195 @@
+<img src="./../../assets/close.png" class="pull-right" style="width:30px; margin-top:-15px !important; margin-right:-15px !important;cursor: pointer;font-weight:bold;" (click)="modal.dismiss('Cross click')">
+<div class="modal-header">
+    <div class="row">
+        <div class="col-md-12" style="font-size: 20px !important;font-weight: bold;">
+            Stats Filter : <img title="Please select the statistics type of score and give a value to be filtered" src="./../../assets/info.png" style="width: 18px;">
+        </div>
+    </div>
+
+
+
+</div>
+<div class="modal-body" style="color:rgb(83, 82, 82) !important">
+    <div class="row" style="border-bottom: solid 1px rgb(112, 111, 111);">
+        <div class="col-md-10">
+            <div class="row">
+                <div class="col-md-4 bottom-30 top-10">
+                    <div ngbDropdown style="width:100%">
+                        <div class="btn-group" style="width:100%">
+                            <button [ngClass]="isLight() ? 'btn btn-pair btn-soccer-outline-primary-left' :'btn btn-pair btn-soccer-dark-outline-primary-left'" id="dropdownBasic2" ngbDropdownToggle>
+                                <span style="font-size: 16px !important;">
+                                    {{selectedStatValue ? selectedStatValue.value :'Stat Type' }}
+                                </span>
+
+                            </button>
+                            <button ngbDropdownToggle id="dropdownBasic2" type="button" style="font-size: 17px !important;width:40px !important;" [ngClass]="isLight() ? 'btn btn-pair btn-soccer-primary-2-right': 'btn btn-pair btn-soccer-dark-primary-right'">
+                                <i class="fa fa-caret-down fa-lg" style="color: rgb(255, 208, 0)"></i>
+                            </button>
+                        </div>
+                        <div ngbDropdownMenu aria-labelledby="dropdownBasic2" style="width:calc(100%-40px) !important;" [ngClass]="isLight()? 'dropdown-body':'dropdown-body-dark'">
+                            <button (click)="selectDropdownValue(stat)" *ngFor="let stat of statTypes;" ngbDropdownItem>
+                              {{stat.value}}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 bottom-30 top-10">
+                    <div ngbDropdown style="width:100%">
+                        <div class="btn-group" style="width:100%">
+
+                            <button [ngClass]="isLight() ? 'btn btn-soccer-outline-primary-left' :'btn btn-soccer-dark-outline-primary-left'" id="dropdownBasic2" ngbDropdownToggle>
+                            <span style="font-size: 16px !important;">
+                                {{selectedFilterType ? selectedFilterType.value :'Filter Type' }}
+                            </span></button>
+                            <button ngbDropdownToggle id="dropdownBasic2" type="button" style="font-size: 17px !important;width:40px !important" [ngClass]="isLight() ? 'btn btn-pair btn-soccer-primary-2-right': 'btn btn-pair btn-soccer-dark-primary-right'">
+                                <i class="fa fa-caret-down fa-lg" style="color: rgb(255, 208, 0)"></i>
+                            </button>
+                        </div>
+                        <div ngbDropdownMenu aria-labelledby="dropdownBasic2" style="width:calc(100%-40px) !important;" [ngClass]="isLight()? 'dropdown-body':'dropdown-body-dark'">
+                            <button (click)="selectFilterType(ft)" *ngFor="let ft of filterTypes;" ngbDropdownItem>{{ft.value}}</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 bottom-30 top-10">
+                    <div class="btn-group" style="width:100%">
+
+                        <input type="text" [ngClass]="isLight() ? 'btn btn-soccer-outline-primary-left' :'btn btn-soccer-dark-outline-primary-left'" style="font-size:18px !important" [(ngModel)]="value" id="inputSuccess2" />
+                        <button type="button" style="font-size: 17px !important;width:40px !important;" [ngClass]="isLight() ? 'btn btn-pair btn-soccer-primary-2-right': 'btn btn-pair btn-soccer-dark-primary-right'">
+                        <span style="color: rgb(255, 208, 0)">#</span>
+                    </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 bottom-30 top-10">
+            <button type="button" [disabled]="!addFilterEnabled()" (click)="addFilter()" style="font-size:16px !important;width:110px !important;" [ngClass]="isLight() ? 'btn btn-soccer-primary' : 'btn btn-soccer-dark-primary'">
+                <i class="fa fa-plus-circle right-10"
+                style="color: rgb(255, 208, 0);float: right;font-size:20px !important"></i>
+                Add
+            </button>
+        </div>
+        <!-- <div class="col-md-2 bottom-30 top-10">
+            <button type="button" (click)="clear()" class="btn btn-soccer-danger">
+                <i class="fa fa-times-circle right-10"  style="font-size:16px !important;color:#fff;float: right;"></i>
+                Clear
+            </button>
+        </div> -->
+        <div class="col-md-12" *ngIf="filters.length">
+            Current Filters:
+        </div>
+        <div class="col-md-4 bottom-10 top-10" *ngFor="let filter of filters;let i=index">
+            <button type="button" style="font-size:16px !important;width:auto !important;" [ngClass]="isLight() ? 'btn btn-soccer-primary' : 'btn btn-soccer-dark-primary'">
+                {{filter.statType.value}} {{filter.filterType.value}} {{filter.filterValue}} &nbsp;
+                <i class="fa fa-times-circle left-10"  (click)="removeFilter(i)"
+                style="color: red;float: right;font-size: 24px !important;"></i>
+            </button>
+        </div>
+
+    </div>
+
+    <div class="row" style="border-bottom: solid 1px rgb(112, 111, 111);">
+        <div class="col-md-12 top-10">
+            <span style="height:32px !important;font-size: 20px !important;font-weight: bold;;">
+                Correct Score Filter <img title="Please select goals from home and away to apply  score filter" src="./../../assets/info.png" style="width: 18px;">
+            </span>
+        </div>
+        <div class="col-md-3" style=" margin-bottom: 20px;">
+
+            <div ngbDropdown style="width:100%">
+                <button ngbDropdownToggle id="dropdownBasic1" type="button" style="width:100% !important;font-size: 17px !important;" [ngClass]="isLight() ? 'btn btn-soccer-primary-2 btn-lg top-5 bottom-10 rounded-style': 'btn btn-soccer-dark-primary btn-lg top-5 bottom-10 rounded-style'">
+                    <i class="fa fa-futbol fa-lg right-5" style="color: rgb(255, 208, 0)"></i>
+                    Home  Goals {{homeGoal}}
+                </button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1" [ngClass]="isLight()? 'dropdown-body':'dropdown-body-dark'">
+                    <button (click)="selectHomeGoal(num)" *ngFor="let num of goalNumbers;" ngbDropdownItem>
+                      {{num}}
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="col-md-2 bottom-30 top-10">
+            <input type="text" placeholder="No of Goals" [ngClass]="isLight() ? 'form-control round-style' : 'form-control round-style-dark'"  [(ngModel)]="homeGoal" id="inputSuccess2"/>
+        </div> -->
+        <div class="col-md-3">
+            <div ngbDropdown style="width:100%">
+                <button ngbDropdownToggle id="dropdownBasic1" type="button" style="width:100% !important;font-size: 17px !important;" class="btn btn-soccer-yellow btn-lg top-5 bottom-10 rounded-style">
+                    <i class="fa fa-futbol fa-lg right-5" style="color: #fff"></i>
+                    Away Goals {{awayGoal}}
+                </button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1" [ngClass]="isLight()? 'dropdown-body-dark':'dropdown-body-dark'">
+                    <button (click)="selectAwayGoal(num)" *ngFor="let num of goalNumbers;" ngbDropdownItem>
+                      {{num}}
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="col-md-2 bottom-30 top-10">
+            <input type="text" placeholder="No of Goals" [ngClass]="isLight() ? 'form-control round-style' : 'form-control round-style-dark'"  [(ngModel)]="awayGoal" id="inputSuccess2"/>
+        </div> -->
+        <!-- <div class="col-md-2 ">
+            <button type="button" [disabled]="!addScoreFilter()" (click)="addScoreFilter()" style="font-size:16px !important;" [ngClass]="isLight() ? 'btn btn-soccer-primary btn-lg top-5 bottom-10 rounded-style' : 'btn btn-soccer-dark-primary btn-lg top-5 bottom-10 rounded-style'">
+                <i class="fa fa-plus-circle right-10"
+                style="color: rgb(255, 208, 0);float: right;"></i>
+                Add
+            </button>
+
+        </div> -->
+        <div class="col-md-4 bottom-30 ">
+            <div class="row">
+                <div class="col-md-12">
+                    <button type="button" [disabled]="!addScoreFilterEnabled()" (click)="addScoreFilter()" style="font-size:16px !important;font-size:16px !important;width:110px !important;" [ngClass]="isLight() ? 'btn btn-soccer-primary btn-lg top-5 bottom-10 rounded-style' : 'btn btn-soccer-dark-primary btn-lg top-5 bottom-10 rounded-style'">
+                        <i class="fa fa-plus-circle right-10"
+                        style="color: rgb(255, 208, 0);float: right;font-size:20px !important"></i>
+                        Add
+                    </button> &nbsp;
+                    <button type="button" (click)="clearScoreFilter()" style="font-size:16px !important;font-size:16px !important;width:110px !important;" class="btn btn-soccer-danger btn-lg top-5 bottom-10 rounded-style">
+                        <i class="fa fa-times-circle right-5 bottom-5"
+                        style="color: #fff;float: right;font-size:20px !important;margin-top: -2px !important;"></i>
+                        Clear
+                    </button>
+                </div>
+                <!-- <div class="col-md-6">
+
+                </div> -->
+            </div>
+
+        </div>
+        <!-- <div class="col-md-2">
+            <button type="button" (click)="clearScoreFilter()" class="btn btn-soccer-danger btn-lg top-5 bottom-10 rounded-style">
+                <i class="fa fa-times-circle right-10"  style="font-size:16px !important;color:#fff;float: right;"></i>
+                Clear
+            </button>
+        </div> -->
+
+
+        <div class="col-md-12" *ngIf="scoreFilters.length">
+            Current Filters:
+        </div>
+        <div class="col-md-2 bottom-10 top-10" *ngFor="let filter of scoreFilters;let i=index">
+            <button type="button" style="font-size:18px !important;width:100% !important" [ngClass]="isLight() ? 'btn btn-soccer-primary' : 'btn btn-soccer-dark-primary'">
+                Score:{{filter}}
+                <i class="fa fa-times-circle right-10"  (click)="removeScoreFilters(i)"
+                style="color: red;float: right;font-size: 24px !important;"></i>
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 top-10" style="font-weight: bold;font-size: 18px !important;">
+            Total Active Filters: {{filters.length + scoreFilters.length}}
+            <button type="button" style="margin-left:20px !important;font-size:16px !important" (click)="clearAllFilters()" class="btn btn-soccer-danger-2 btn-lg top-5 bottom-10 rounded-style">
+                Clear All Filters
+                <i class="fa fa-times-circle fa-lg left-5" style="color:#fff;font-size:20px !important"></i>
+
+            </button>
+        </div>
+        <!-- <div class="col-md-2 bottom-30 ">
+            <button type="button" (click)="clearScoreFilter()" style="font-size:16px !important;" [ngClass]="isLight() ? 'btn btn-soccer-danger btn-lg top-5 bottom-10 rounded-style' : 'btn btn-soccer-dark-danger btn-lg top-5 bottom-10 rounded-style'">
+                <i class="fa fa-times-circle right-10"
+                style="color: #fff;float: right;font-size:20px !important;margin: bottom -3px !important;"></i>
+                Clear
+            </button>
+        </div> -->
+
+    </div>
+</div>

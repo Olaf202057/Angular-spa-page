@@ -1,0 +1,378 @@
+.btn-soccer-primary {
+  background-color: #146853 !important;
+  font-size: 13px;
+  color: rgb(255, 208, 0);
+  letter-spacing: 1px;
+  background: transparent;
+  transition: all 0.3s ease 0s;
+  line-height: 18px;
+  height: 35px;
+  border-radius: 40px;
+  font-size: 10px !important;
+  font-weight: bold !important;
+  width: 100%;
+  left: 5px;
+  right: 5px;
+  text-align: left !important;
+
+}
+
+.btn-soccer-outline-primary {
+  color: #07241d !important;
+  font-size: 14px !important;
+  background-color: #d4ece5 !important;
+  letter-spacing: 1px;
+  background: transparent;
+  transition: all 0.3s ease 0s;
+  line-height: 16px;
+  height: 32px;
+  border-radius: 40px;
+  font-size: 10px !important;
+  font-weight: bold !important;
+  width: 100%;
+  left: 5px;
+  right: 5px;
+  text-align: left !important;
+
+}
+
+
+
+.btn-soccer-outline-primary-left {
+  color: #07241d !important;
+  font-size: 14px !important;
+  background-color: #d4ece5 !important;
+  letter-spacing: 1px;
+  background: transparent;
+  transition: all 0.3s ease 0s;
+  line-height: 16px;
+  height: 32px;
+  border-top-left-radius: 40px;
+  border-bottom-left-radius: 40px;
+  font-size: 10px !important;
+  font-weight: bold !important;
+  width: 100%;
+  left: 5px;
+  right: 5px;
+  text-align: left !important;
+
+}
+
+.btn-soccer-danger {
+  background-color: red !important;
+  font-size: 13px;
+  color: #fff;
+  letter-spacing: 1px;
+  background: transparent;
+  transition: all 0.3s ease 0s;
+  line-height: 18px;
+  height: 35px;
+  border-radius: 40px;
+  font-size: 10px !important;
+  font-weight: bold !important;
+  width: 100%;
+  left: 5px;
+  right: 5px;
+  text-align: left !important;
+}
+
+.round-style {
+  -moz-border-radius: 15px;
+  border-radius: 40px;
+  border: solid 1px black;
+  padding: 5px;
+  height: 32px;
+  width: 100%;
+  border: none;
+  color: #07241d !important;
+  background-color: rgb(220, 236, 228);
+}
+
+
+
+
+
+.round-style-dark {
+  -moz-border-radius: 15px;
+  border-radius: 40px;
+  border: solid 1px black;
+  padding: 5px;
+  height: 32px;
+  width: 100%;
+  color: #fff !important;
+  border: none;
+  background-color: rgb(144, 146, 145);
+}
+
+
+
+.btn-soccer-secondary {
+  background-color: grey !important;
+  font-size: 13px;
+  color: #fff;
+  letter-spacing: 1px;
+  line-height: 15px;
+  border-radius: 40px;
+  background: transparent;
+  transition: all 0.3s ease 0s;
+}
+
+.btn-green {
+  background-color: green !important;
+  color: #fff;
+  font-size: 13px;
+  letter-spacing: 1px;
+  background: transparent;
+  transition: all 0.3s ease 0s;
+}
+
+.btn-red {
+  background-color: red !important;
+  color: #fff;
+  font-size: 13px;
+  letter-spacing: 1px;
+  background: transparent;
+  transition: all 0.3s ease 0s;
+}
+
+.btn-grey {
+  background-color: grey !important;
+  color: #fff;
+  letter-spacing: 1px;
+  background: transparent;
+  transition: all 0.3s ease 0s;
+}
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  padding: 6px 0px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.btn-soccer-primary-2 {
+  background-color: #146853 !important;
+  font-size: 13px;
+  color: rgb(255, 208, 0);
+  letter-spacing: 1px;
+  line-height: 15px;
+  border-radius: 40px;
+  background: transparent;
+  transition: all 0.3s ease 0s;
+}
+
+.btn-soccer-primary-2-right {
+  background-color: #146853 !important;
+  font-size: 13px;
+  color: rgb(255, 208, 0);
+  letter-spacing: 1px;
+  line-height: 15px;
+  height: 32px !important;
+
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+  ;
+  background: transparent;
+  transition: all 0.3s ease 0s;
+}
+
+.dropdown-body {
+  border-bottom-left-radius: 20px !important;
+  border-bottom-right-radius: 20px !important;
+  background-color: #d4ece5 !important;
+  color: #146853 !important;
+}
+
+.dropdown-body-dark {
+  border-bottom-left-radius: 20px !important;
+  border-bottom-right-radius: 20px !important;
+  color: #000 !important;
+  background-color: #fff !important;
+}
+
+.dropdown-body>button:hover {
+  background-color: #146853 !important;
+  color: rgb(255, 208, 0) !important;
+}
+
+.dropdown-body-dark>button:hover {
+  background-color: #000 !important;
+  color: rgb(255, 208, 0) !important;
+}
+
+::ng-deep .dropdown-menu {
+  width: calc(100% - 40px) !important;
+}
+
+.btn-soccer-danger-2 {
+  background-color: red !important;
+  font-size: 13px;
+  color: #fff;
+  letter-spacing: 1px;
+  line-height: 15px;
+  border-radius: 40px;
+  background: transparent;
+  transition: all 0.3s ease 0s;
+}
+
+
+
+.btn-soccer-dark-primary {
+  background-color: #000 !important;
+  font-size: 13px;
+  color: rgb(255, 208, 0);
+  letter-spacing: 1px;
+  background: transparent;
+  transition: all 0.3s ease 0s;
+  line-height: 16px;
+  height: 32px;
+  border-radius: 40px;
+  font-size: 10px !important;
+  font-weight: bold !important;
+  width: 100%;
+  left: 5px;
+  right: 5px;
+  text-align: left !important;
+
+}
+
+.btn-soccer-dark-primary-right {
+  background-color: #000 !important;
+  font-size: 13px;
+  color: rgb(255, 208, 0);
+  letter-spacing: 1px;
+  transition: all 0.3s ease 0s;
+  line-height: 16px;
+  height: 32px;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+  ;
+  font-size: 10px !important;
+  font-weight: bold !important;
+  width: 100%;
+  left: 5px;
+  right: 5px;
+  text-align: left !important;
+  background-color: #000 !important;
+
+}
+
+.btn-pair {
+  display: inline-block !important;
+}
+
+.btn-soccer-dark-danger {
+  background-color: #000 !important;
+  font-size: 13px;
+  color: rgb(255, 208, 0);
+  letter-spacing: 1px;
+  background: transparent;
+  transition: all 0.3s ease 0s;
+  line-height: 16px;
+  height: 32px;
+  border-radius: 40px;
+  font-size: 10px !important;
+  font-weight: bold !important;
+  width: 100%;
+  left: 5px;
+  right: 5px;
+  text-align: left !important;
+
+}
+
+.btn-soccer-dark-outline-primary {
+  color: #07241d !important;
+  font-size: 13px;
+  background-color: #949796 !important;
+  letter-spacing: 1px;
+  background: transparent;
+  transition: all 0.3s ease 0s;
+  line-height: 16px;
+  height: 32px;
+  color: #fff !important;
+  border-radius: 40px;
+  font-size: 10px !important;
+  font-weight: bold !important;
+  width: 100%;
+  left: 5px;
+  right: 5px;
+  text-align: left !important;
+
+}
+
+#dropdownBasic2::after {
+  display: none !important;
+}
+
+#dropdownBasic1::after {
+  font-size: 28px !important;
+  margin-top: 4px !important;
+}
+
+.btn-soccer-dark-outline-primary-left {
+  color: #07241d !important;
+  font-size: 13px;
+  background-color: #949796 !important;
+  letter-spacing: 1px;
+  background: transparent;
+  transition: all 0.3s ease 0s;
+  line-height: 16px;
+  height: 32px;
+  color: #fff !important;
+  border-top-left-radius: 40px;
+  border-bottom-left-radius: 40px;
+  font-size: 10px !important;
+  font-weight: bold !important;
+  width: 100%;
+  left: 5px;
+  right: 5px;
+  text-align: left !important;
+
+}
+
+.btn-soccer-yellow {
+  background-color: rgb(255, 166, 0) !important;
+  font-size: 13px;
+  color: #fff;
+  letter-spacing: 1px;
+  line-height: 15px;
+  border-radius: 40px;
+  background: transparent;
+  transition: all 0.3s ease 0s;
+}
+
+.right-5 {
+  margin-right: 5px;
+}
+
+.right-10 {
+  margin-right: 10px;
+}
+
+.top-5 {
+  margin-top: 5px;
+}
+
+.top-10 {
+  margin-top: 10px !important;
+}
+
+.bottom-5 {
+  margin-bottom: 5px;
+}
+
+.bottom-10 {
+  margin-bottom: 10px;
+}
+
+
+.bottom-20 {
+  margin-bottom: 10px;
+}
+
+.bottom-30 {
+  margin-bottom: 30px;
+}

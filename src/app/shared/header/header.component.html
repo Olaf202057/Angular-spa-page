@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-sm navbar-light scanner-header">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img alt="logo" class="logo-img" src="assets/img/logo-light.png">
+        </a>
+
+        <ul class="navbar-nav d-flex align-items-center">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item" [routerLinkActive]="['active']">
+                <a class="nav-link" [routerLink]="['/planner']">Planner</a>
+            </li>
+            <li class="nav-item" [routerLinkActive]="['active']">
+                <a class="nav-link" [routerLink]="['/scanner']">Scanner</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Teams</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Events</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="profile-drop-down" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img alt="profile" class="profile-img mr-2" src="assets/img/profile.png"> John Doe
+                    <i class="far fa-angle-down ml-1" style="font-size: 20px;"></i>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="profile-drop-down">
+                    <a class="dropdown-item" href="#">Action</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link theme-icon" href="#">
+                    <i class="fal fa-moon light-theme" style="color: #1b6753; font-size: 20px;"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>

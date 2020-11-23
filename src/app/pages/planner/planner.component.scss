@@ -1,0 +1,17 @@
+.planner-container {
+  // padding-top: 24px !important;
+  // padding-bottom: 24px !important;
+
+  .planner-header {
+    span {
+      &.planner-title {
+        font-size: 18px !important;
+        font-family: "poppins-bold" !important;
+      }
+    }
+  }
+
+  .planner-content {
+    margin-top: 24px !important;
+  }
+}

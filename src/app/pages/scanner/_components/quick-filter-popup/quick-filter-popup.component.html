@@ -1,0 +1,70 @@
+<img src="./../../assets/close.png" class="pull-right" style="width:30px; margin-top:-15px !important;cursor: pointer; margin-right:-15px !important;font-weight: bold !important;;" (click)="modal.dismiss('Cross click')">
+<div class="modal-header">
+    <div class="row">
+        <div class="col-md-12" style="font-size: 18px; line-height: 36px; color: #7f8593; font-weight: 600; padding-left: 25px;">
+            Quick Filters:
+        </div>
+    </div>
+</div>  
+<div class="modal-body" style="color:grey !important">
+
+    <div class="row">
+        <div class="col-md-12 top-10 bottom-10" style="border-bottom: solid 1px #7f8593 !important; font-size: 18px;font-weight: bold; padding: auto 25px;">Show Only Games Currently In
+            <div class="row top-10 bottom-10" *ngIf="gamesCurrentlyInFilters && gamesCurrentlyInFilters.length">
+                <div class="col-md-3" *ngFor="let entry of getGamesCurrentlyInFilters()">
+                    <button *ngIf="entry.applyFilter" type="button" (click)="toggle(entry)" [ngClass]="getClass(entry?.applyFilter)">
+                        {{entry?.value}}
+                        <i class='fa fa-check-circle right-10 ok-button pull-right'></i>
+                    </button>
+                    <button *ngIf="!entry.applyFilter" type="button" (click)="toggle(entry)" [ngClass]="getClass(entry?.applyFilter)">
+                        {{entry?.value}}
+                        <i class='fa fa-times-circle right-10 cancel-button pull-right'></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 top-10 bottom-10" style="border-bottom: solid 1px #7f8593 !important;font-size:17px !important;font-weight: bold; padding: auto 25px;">Misc
+            <div class="row top-10 bottom-10" *ngIf="miscFilters && miscFilters.length">
+                <div class="col-md-3" *ngFor="let entry of getMiscFilters()">
+                    <button *ngIf="entry.applyFilter" type="button" (click)="toggle(entry)" [ngClass]="getClass(entry?.applyFilter)">
+                        {{entry?.value}}
+                        <i class='fa fa-check-circle right-10 ok-button pull-right'></i>
+                    </button>
+                    <button *ngIf="!entry.applyFilter" type="button" (click)="toggle(entry)" [ngClass]="getClass(entry?.applyFilter)">
+                        {{entry?.value}}
+                        <i class='fa fa-times-circle right-10 cancel-button pull-right'></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 top-10 bottom-10" style="font-size:17px !important;font-weight:bold; padding: auto 25px;">
+            Strategies
+        </div>
+        <div class="col-md-3">
+
+            <div ngbDropdown style="width:100%">
+                <div class="btn-group" style="width:100%">
+
+                    <button [ngClass]="isLight() ? 'btn btn-soccer-outline-primary-left' : 'btn btn-soccer-dark-outline-primary-left'" style="font-size: 16px !important;" id="dropdownBasic2" ngbDropdownToggle>
+                    <span style="margin-right:40px;font-size: 16px !important; color: #146853;">
+                        Strategy Name
+                    </span></button>
+                    <button ngbDropdownToggle id="dropdownBasic2" type="button" style="font-size: 17px !important;width:40px !important; z-index: 1;" [ngClass]="isLight() ? 'btn btn-pair btn-soccer-primary-2-right': 'btn btn-pair btn-soccer-dark-primary-right'">
+                        <i class="fa fa-caret-down fa-lg" style="color: rgb(255, 208, 0)"></i>
+                    </button>
+                </div>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic2" style="width:calc(100%-40px) !important;" [ngClass]="isLight()? 'dropdown-body':'dropdown-body-dark'">
+                    <button ngbDropdownItem *ngFor="let stat of strategies">
+                      {{stat}}
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9 bottom-10">
+        </div>
+    </div>
+</div>

@@ -1,0 +1,153 @@
+<img src="./../../assets/close.png" class="pull-right" 
+style="width:30px; margin-top:-15px !important; margin-right:-15px !important;cursor: pointer;font-weight:bold;" (click)="modal.dismiss('Cross click')">
+
+<div class="row m-0 bg-white column-visibility">
+  <div ngbDropdown class="dropdown-container">
+    <span style="font-weight: bold;">Strategy</span>
+    <div class="btn-group" style="width:60%">
+        <button style="height: 28px !important;" class="btn btn-pair btn-soccer-outline-primary-left" id="dropdownBasic2" ngbDropdownToggle>
+            <span *ngIf="currentStrategy" style="font-size: 14px !important;">
+                {{currentStrategy.name}}
+            </span>
+            
+        </button>
+        <button ngbDropdownToggle id="dropdownBasic2" type="button" style="font-size: 15px !important;width:30px !important;height:28px !important;" class="btn btn-pair btn-soccer-primary-2-right">
+          <i class="fa fa-caret-down fa-lg" style="color: #fff !important;margin-bottom:4px !important"></i>
+      </button>
+     </div>
+        
+    <div ngbDropdownMenu aria-labelledby="dropdownBasic2" style="width:calc(60%-40px) !important;" class="dropdown-body">
+      <button ngbDropdownItem>
+        
+      </button>
+      <button (click)="selectDropdownValue(strategy)" *ngFor="let strategy of strategies;" ngbDropdownItem>
+        {{strategy.name}}
+      </button>
+    </div>
+</div>
+
+    <div class="col-12 visibility-section">
+      <div class="row">
+        <div class="col-12 section-header">
+          <span class="section-title text-semi-gray">Stats Filters</span>
+        </div>
+        <div class="col-12 section-content">
+          <div class="row">
+            <ng-container>
+              <div class="col-auto" *ngFor="let statsFilter of selectedStrategy.statsFiltersList; index as i;">
+                <button *ngIf="statsFilter.statType" class="btn btn-visibility text-capitalize d-flex justify-content-between align-items-center bg-success bg-success-color text-white">
+                  <span>{{statsFilter.statType}}</span>
+                  <span>{{statsFilter.operator}}</span>
+                  <span>{{statsFilter.value}}</span>
+                </button>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 visibility-section">
+      <div class="row">
+        <div class="col-12 section-header">
+          <span class="section-title text-semi-gray">Correct Score Filters</span>
+        </div>
+        <div class="col-12 section-content">
+          <div class="row">
+            <ng-container>
+              <div *ngFor="let correctScore of selectedStrategy.correctScoreFiltersList; index as i;" class="col-auto">
+                <button *ngIf="selectedStrategy.correctScoreFiltersList.length > 1" class="btn btn-visibility text-capitalize d-flex justify-content-between align-items-center bg-success bg-success-color text-white" style="width: 150px !important;">
+                  <span>{{correctScore.homeGoals}}</span>
+                  <span>-</span>
+                  <span>{{correctScore.awayGoals}}</span>
+                </button>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 visibility-section">
+      <div class="row">
+        <div class="col-12 section-header">
+          <span class="section-title text-semi-gray">Main Column Visibility</span>
+        </div>
+        <div class="col-12 section-content">
+          <div class="row">
+            <ng-container *ngFor="let item of mainColumns;index as i;">
+              <div class="col-auto">
+                <button class="btn btn-visibility text-capitalize d-flex justify-content-between align-items-center"
+                  [ngClass]="selectedStrategy[item.key] ? 'bg-success bg-success-color text-white' : 'bg-semi-success'"
+                  (click)="onClickVisibility(item)">
+                  <span>{{ item.label }}</span>
+                  <span *ngIf="selectedStrategy[item.key]">
+                    <i class="fa fa-check-circle"></i>
+                  </span>
+                  <span *ngIf="!selectedStrategy[item.key]">
+                    <i class="fa fa-times-circle"></i>
+                  </span>
+                </button>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="col-12 visibility-section">
+      <div class="row">
+        <div class="col-12 section-header">
+          <span class="section-title text-semi-gray">Previous Stats Column Visibility</span>
+        </div>
+        <div class="col-12 section-content">
+          <div class="row">
+            <ng-container *ngFor="let item of prevStatsColumns;index as i;">
+              <div class="col-auto">
+                <button class="btn btn-visibility text-capitalize d-flex justify-content-between align-items-center"
+                  [ngClass]="selectedStrategy[item.key] ? 'bg-success bg-success-color text-white' : 'bg-semi-success'"
+                  (click)="onClickVisibility(item)">
+                  <span>{{ item.label }}</span>
+                  <span *ngIf="selectedStrategy[item.key]">
+                    <i class="fa fa-check-circle"></i>
+                  </span>
+                  <span *ngIf="!selectedStrategy[item.key]">
+                    <i class="fa fa-times-circle"></i>
+                  </span>
+                </button>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="col-12 visibility-section">
+      <div class="row">
+        <div class="col-12 section-header">
+          <span class="section-title text-semi-gray">Misc Column Visibility</span>
+        </div>
+        <div class="col-12 section-content">
+          <div class="row">
+            <ng-container *ngFor="let item of miscColumns;index as i;">
+              <div class="col-auto">
+                <button class="btn btn-visibility text-capitalize d-flex justify-content-between align-items-center"
+                  [ngClass]="selectedStrategy[item.key] ? 'bg-success bg-success-color text-white' : 'bg-semi-success'"
+                  (click)="onClickVisibility(item)">
+                  <span>{{ item.label }}</span>
+                  <span *ngIf="selectedStrategy[item.key]">
+                    <i class="fa fa-check-circle"></i>
+                  </span>
+                  <span *ngIf="!selectedStrategy[item.key]">
+                    <i class="fa fa-times-circle"></i>
+                  </span>
+                </button>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <button (click)="applyStrategy()" class="btn btn-grey apply btn-circle right-10 bottom-5" style="background-color: #007eff;">Apply</button>
+  </div>
+  

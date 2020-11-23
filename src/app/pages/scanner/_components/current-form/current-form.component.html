@@ -1,0 +1,78 @@
+
+<div [hidden]="!loaded">
+    <div class="row top left right" >
+        <div class="col-md-3 page" 
+        [ngStyle]="{color: !isLight() ? 'rgb(255, 208, 0)' : 'green'}">Current Form </div>
+        <div class="col-md-5"></div>
+        <div class="col-md-4 ">
+          <div ngbDropdown class="d-inline-block pull-right rounded-style">
+            <button [ngClass]="isLight() ? 'btn btn-soccer-primary-2' : 'btn btn-soccer-dark-primary-2'" id="dropdownBasic1" ngbDropdownToggle>{{selectedOption}}</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" [ngClass]="isLight() ? 'dropdown-body':'dropdown-body-dark'">
+              <button (click)="selectOption('All')" ngbDropdownItem>All Info</button>
+              <button (click)="selectOption('Home')" ngbDropdownItem selected>Home</button>
+              <button (click)="selectOption('Away')" ngbDropdownItem>Away</button>
+            </div>
+        </div>
+        </div>
+    </div>
+      <div [ngClass]="isLight() ? 'row py-5 left right light-mode': 'row py-5 left right dark-mode' ">
+        <div class="col-md-12">
+          <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+            <li [ngbNavItem]="1" [hidden]="selectedOption != 'All' && selectedOption != 'Home'">
+              <a ngbNavLink>Home</a>
+              <ng-template ngbNavContent>
+                <div class="row py-5"  [ngClass]="isLight() ? 'base-background' : 'base-dark-background'">
+                  <div class="col-md-12" style="margin-top:-15px;">
+                <app-current-form-grid [type]="'Home'"  ></app-current-form-grid>
+                </div></div>
+            </ng-template>
+            </li>
+            <li [ngbNavItem]="2" [hidden]="selectedOption != 'All' && selectedOption != 'Away'"> 
+              <a ngbNavLink>Away</a>
+              <ng-template ngbNavContent>
+                <div class="row py-5"   [ngClass]="isLight() ? 'base-background' : 'base-dark-background'">
+                  <div class="col-md-12" style="margin-top:-15px;">
+                <app-current-form-grid [type]="'Away'"  ></app-current-form-grid>
+                </div></div>
+            </ng-template>
+            </li>
+            <li [ngbNavItem]="3" [hidden]="selectedOption != 'All'">
+              <a ngbNavLink>H2H</a>
+              <ng-template ngbNavContent>
+                <div class="row py-5"  [ngClass]="isLight() ? 'base-background' : 'base-dark-background'">
+                  <div class="col-md-12" style="margin-top:-15px;">
+                <app-current-form-grid [type]="'H2H'"  ></app-current-form-grid>
+                </div></div>
+            </ng-template>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-12" >
+          <div [ngbNavOutlet]="nav" class="mt-2 form-outlet"></div>
+        </div>
+      </div>
+    </div>
+     
+    <div *ngIf="!loaded" style="margin-top:22%;margin-left:42%">
+      <div class="spinner-grow text-primary" role="status">
+        <span class="sr-only">Loading </span>
+      </div>
+      <div class="spinner-grow text-secondary" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <div class="spinner-grow text-success" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <div class="spinner-grow text-danger" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <div class="spinner-grow text-warning" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <div class="spinner-grow text-info" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <div class="spinner-grow text-dark" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+  </div>
